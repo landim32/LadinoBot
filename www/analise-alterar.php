@@ -1,0 +1,1 @@
+<?php require('analise-novo.php');

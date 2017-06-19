@@ -1,0 +1,10 @@
+php_flag display_errors on
+php_value error_reporting 6143
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^(.*)$ $1.php
+</IfModule>
