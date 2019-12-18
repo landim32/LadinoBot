@@ -117,7 +117,9 @@ operação podem ser modificadas de acordo com a evolução dos objetivos.
 ## Meta
 
 Rodrigo Landim – [@Landim32Oficial](https://twitter.com/landim32oficial) – rodrigo@emagine.com.br
+
 Distribuído sob a licença GPLv2. Veja `LICENSE` para mais informações.
+
 [https://github.com/landim32/LadinoBot](https://github.com/landim32/LadinoBot)
 
 ## Contributing
