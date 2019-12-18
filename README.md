@@ -109,6 +109,25 @@ operação podem ser modificadas de acordo com a evolução dos objetivos.
 - **Goal 3 Position** - Valor fixo para se atingir o objetivo 3. O <strong>Goal 3 Condition</strong> deve estar marcada como **Fixed Position**;
 - **Goal 3 Stop** - Esse é o modelo de Stop Loss usado a partir do momento que atingir o objetivo 3. Veja mais detalhes nos campo **Stop Inicial**;
 
+## Histórico de lançamentos
+
+* 1.0.0
+    * Versão inicial
+
+## Meta
+
+Rodrigo Landim – [@Landim32Oficial](https://twitter.com/landim32oficial) – rodrigo@emagine.com.br
+Distribuído sob a licença GPLv2. Veja `LICENSE` para mais informações.
+[https://github.com/landim32/LadinoBot](https://github.com/landim32/LadinoBot)
+
+## Contributing
+
+1. Faça o _fork_ do projeto (<https://github.com/landim32/LadinoBot/fork>)
+2. Crie uma _branch_ para sua modificação (`git checkout -b landim32/LadinoBot`)
+3. Faça o _commit_ (`git commit -am 'Add some fooBar'`)
+4. Push_ (`git push origin landim32/LadinoBot`)
+5. Crie um novo _Pull Request_
+
 
 
 
