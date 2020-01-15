@@ -69,9 +69,6 @@ bool LadinoHiLo::verificarTendencia() {
    SINAL_TENDENCIA tendencia = tendenciaAtual();
    if (_tendenciaAtual != tendencia) {
       _tendenciaAtual = tendencia;
-      //if (PositionSelect(_Symbol))
-      //   trade.PositionClose(_Symbol);
-      //logs.adicionarLog("A tendência HiLo mudou para ALTA!");
       onTendenciaMudou(_tendenciaAtual);
    }
    return true;

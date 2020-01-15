@@ -66,7 +66,6 @@ void LogPanel::adicionarLog(const string texto) {
    for (i = 2; i <= ArraySize(logs); i++) {
       logs[i-2] = logs[i-1];
    }
-   //logs[ArraySize(logs) - 1] = texto;
    logs[ArraySize(logs) - 1] = str;
    
    for (i = 1; i <= ArraySize(logs); i++) {

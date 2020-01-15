@@ -84,7 +84,6 @@ int LadinoAutoTrend::gerarLTB(datetime inicio, ENUM_TIMEFRAMES periodo = PERIOD_
          velaEsquerdaIndex = i;
       }
    }
-   //int emQueda = velaEsquerdaIndex;
    bool emBaixa = true;
    for (int i = velaEsquerdaIndex + 1; i < ArraySize(rt); i++) {
       if (emBaixa && (rt[i-1].high < rt[i].high))
@@ -207,8 +206,6 @@ double LadinoAutoTrend::ultimoSuporte(ENUM_TIMEFRAMES periodo = PERIOD_M1, long 
    for (int i = ArraySize(rt) - 2; i >= 0; i--) {
       if (rt[i].low <= suporte)
          suporte = rt[i].low;
-      //else
-      //   break;
    }
    return suporte;
 }
@@ -223,8 +220,6 @@ double LadinoAutoTrend::ultimaResistencia(ENUM_TIMEFRAMES periodo = PERIOD_M1, l
    for (int i = ArraySize(rt) - 2; i >= 0; i--) {
       if (rt[i].high >= resistencia)
          resistencia = rt[i].high;
-      //else
-      //   break;
    }
    return resistencia;
 }

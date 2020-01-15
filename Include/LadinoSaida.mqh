@@ -43,7 +43,6 @@ TIPO_STOP LadinoSaida::tipoStopAtual() {
 }
 
 double LadinoSaida::pegarPosicaoStop(SINAL_POSICAO posicao) {
-   //DADOS_SR dados[];
    double posicaoStop = 0;
    TIPO_STOP tipoStop = tipoStopAtual();
    switch (tipoStop) {
@@ -327,7 +326,6 @@ void LadinoSaida::verificarObjetivoFixo() {
 
 void LadinoSaida::executarBreakEven() {
    if (this.getPosicaoAtual() == COMPRADO) {
-      //if (operacaoAtual == SITUACAO_ABERTA && BreakEven > 0 && precoCompra >= (_trade.getPrecoEntrada() + BreakEven)) {
       if (getBreakEven() > 0 && _precoCompra >= (this.getPrecoEntrada() + getBreakEven())) {
          if (operacaoAtual == SITUACAO_ABERTA)
             operacaoAtual = SITUACAO_BREAK_EVEN;
@@ -341,7 +339,6 @@ void LadinoSaida::executarBreakEven() {
       }
    }
    else if (this.getPosicaoAtual() == VENDIDO) {
-      //if (operacaoAtual == SITUACAO_ABERTA && BreakEven > 0 && precoVenda <= (_trade.getPrecoEntrada() - BreakEven)) {      
       if (getBreakEven() > 0 && _precoVenda <= (this.getPrecoEntrada() - getBreakEven())) {      
          if (operacaoAtual == SITUACAO_ABERTA)
             operacaoAtual = SITUACAO_BREAK_EVEN;
@@ -423,8 +420,6 @@ bool LadinoSaida::verificarSaida() {
    if (getGanhoMaximoPosicao() > 0 && precoOperacao > getGanhoMaximoPosicao())
       this.finalizarPosicao();
    
-   //ObjectSetString(0, labelPosicaoAtual, OBJPROP_TEXT, StringFormat("%.2f", precoOperacao));
-   //ObjectSetString(0, labelPosicaoGeral, OBJPROP_TEXT, StringFormat("%.2f", this.precoAtual()));
    atualizarPosicao(precoOperacao, this.precoAtual());
    return false;
 }

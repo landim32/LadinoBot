@@ -39,12 +39,9 @@ void LadinoBot::aoAbrirPosicao() {
 }
 
 void LadinoBot::aoFecharPosicao(double saldo) {
-   //currentSL = 0;
    _negociacaoAtual = INDEFINIDA;
    atualizarNegociacaoAtual();
-   //operacaoAtual = SITUACAO_FECHADA;
    operacaoAtual = SITUACAO_ABERTA;
-
 }
 
 void LadinoBot::aoAtingirGanhoMax() {
