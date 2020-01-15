@@ -73,4 +73,5 @@ Include/WinAPI/
 Include/Object.mqh
 Include/StdLibErr.mqh
 Include/VirtualKeys.mqh
+Indicators/Examples/
 Indicators/*.ex5
