@@ -111,7 +111,9 @@ operação podem ser modificadas de acordo com a evolução dos objetivos.
 
 ## Histórico de lançamentos
 
-* 1.0.0
+* 1.01
+    * Versão inicial com código organizado e objetos não utilizandos removidos
+* 1.00
     * Versão inicial
 
 ## Meta
