@@ -70,3 +70,6 @@ Include/Strings/
 Include/Tools/
 Include/Trade/
 Include/WinAPI/
+Include/Object.mqh
+Include/StdLibErr.mqh
+Include/VirtualKeys.mqh
