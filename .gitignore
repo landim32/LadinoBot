@@ -49,6 +49,7 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 # MQL5
+experts.dat
 Experts/Advisors/
 Experts/Examples/
 Experts/*.ex5
@@ -75,5 +76,24 @@ Include/WinAPI/
 Include/Object.mqh
 Include/StdLibErr.mqh
 Include/VirtualKeys.mqh
-Indicators/Examples/
 Indicators/*.ex5
+Indicators/Examples/
+Indicators/autotrendlines.mq5
+Indicators/b-clock.mq5
+Indicators/BookEventProcessor1.mq5
+Indicators/BookEventProcessor2.mq5
+Indicators/candlestick_patterns.mq5
+Indicators/candlestick_type_color.mq5
+Indicators/chartobjects.mq5
+Indicators/custom_moving_average.mq5
+Indicators/fibos.mq5
+Indicators/geo_innerbar.mq5
+Indicators/madelta_inc.mq5
+Indicators/nrtr_atr_stop.mq5
+Indicators/pivot.mq5
+Indicators/silvertrend_htf_signal.mq5
+Indicators/silvertrend_signal.mq5
+Indicators/support_and_resistance.mq5
+Indicators/trendlinealert.mq5
+Indicators/trendlinescrossing.mq5
+Indicators/x-bars_fractals.mq5
