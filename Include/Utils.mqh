@@ -188,10 +188,6 @@ long novoGrafico(string nome, ENUM_TIMEFRAMES periodo = PERIOD_CURRENT, int larg
    long subChartId = 0;
    if( ObjectCreate(0, nome, OBJ_CHART, 0, 0, 0) ) {
    
-      //int chart_scale = (int)ChartGetInteger(0,CHART_SCALE);
-      //int chart_width=(int)ChartGetInteger(0,CHART_WIDTH_IN_PIXELS,subwindow_number);
-      //int chart_height=(int)ChartGetInteger(0,CHART_HEIGHT_IN_PIXELS,subwindow_number);
-   
       ObjectSetInteger(0,nome,OBJPROP_CORNER, CORNER_LEFT_LOWER);   // chart corner
       ObjectSetInteger(0,nome,OBJPROP_XDISTANCE, x);       // X-coordinate
       ObjectSetInteger(0,nome,OBJPROP_YDISTANCE, y);       // Y-coordinate
@@ -202,7 +198,6 @@ long novoGrafico(string nome, ENUM_TIMEFRAMES periodo = PERIOD_CURRENT, int larg
       ObjectSetInteger(0,nome,OBJPROP_PRICE_SCALE, false);
       ObjectSetString(0, nome, OBJPROP_SYMBOL, _Symbol);
       ObjectSetInteger(0, nome, OBJPROP_PERIOD, periodo);
-      //ObjectSetString(0, name, OBJPROP_TOOLTIP, tooltip);
       ObjectSetInteger(0, nome, OBJPROP_BACK, false);
       ObjectSetInteger(0, nome, OBJPROP_SELECTABLE, false);
       ObjectSetInteger(0, nome, OBJPROP_COLOR, clrWhite);
@@ -217,16 +212,6 @@ long novoGrafico(string nome, ENUM_TIMEFRAMES periodo = PERIOD_CURRENT, int larg
       ChartSetInteger(subChartId, CHART_SHOW_ASK_LINE, false);    // ask level
       ChartSetInteger(subChartId, CHART_COLOR_LAST, clrLimeGreen);       // color of the level of the last executed deal 
       ChartSetInteger(subChartId, CHART_COLOR_STOP_LEVEL, clrRed);       // color of Stop order levels 
-      
-      
-      /*
-      fractalHandle = iFractals(_Symbol, TempoSecundario);
-      if(fractalHandle == INVALID_HANDLE) {
-         Print("Erro ao criar indicador fractal.");
-         return false;
-      }
-      ChartIndicatorAdd(subchart_id, 0, fractalHandle); 
-      */
       
       ChartRedraw(subChartId);
       ChartRedraw();
@@ -258,22 +243,6 @@ void criarLabel(
       ObjectSetInteger(chartId, nome, OBJPROP_HIDDEN, true);
    }
 }
-
-/*
-void criarLabelRect(string nome, string texto, int x, int y, int cor = clrWhite) {
-   if (ObjectCreate(0, nome, OBJ_RECTANGLE_LABEL, 0, 0, 0)) {
-      ObjectSetInteger(0, nome, OBJPROP_XDISTANCE, y);
-      ObjectSetInteger(0, nome, OBJPROP_YDISTANCE, x);
-      ObjectSetInteger(0, nome, OBJPROP_CORNER, CORNER_RIGHT_UPPER);
-      ObjectSetInteger(0, nome, OBJPROP_ANCHOR, ANCHOR_RIGHT);
-      ObjectSetInteger(0, nome, OBJPROP_COLOR, cor);
-      ObjectSetString(0, nome, OBJPROP_TEXT, texto);
-      ObjectSetString(0, nome, OBJPROP_FONT, "Tahoma");
-      ObjectSetInteger(0, nome, OBJPROP_FONTSIZE, 8);
-      ObjectSetInteger(0, nome, OBJPROP_SELECTABLE, false);   
-   }
-}
-*/
 
 bool horarioCondicao(ENUM_HORARIO horario, ENUM_HORARIO_CONDICAO condicao) {
    int hora = 0, minuto = 0, segundos1 = 0, segundos2 = 0;
@@ -330,19 +299,15 @@ bool horarioCondicao(ENUM_HORARIO horario, ENUM_HORARIO_CONDICAO condicao) {
    bool retorno = false;
    switch (condicao) {
       case IGUAL_OU_MAIOR_QUE:   
-         //retorno = (tempo.hour >= hora && tempo.min >= minuto);
          retorno = (segundos1 >= segundos2);
       break;   
       case IGUAL_OU_MENOR_QUE:   
-         //retorno = (tempo.hour <= hora && tempo.min <= minuto);
          retorno = (segundos1 <= segundos2);
       break;   
       case MAIOR_QUE:   
-         //retorno = (tempo.hour >= hora && tempo.min > minuto);
          retorno = (segundos1 > segundos2);
       break;   
       case MENOR_QUE:   
-         //retorno = (tempo.hour <= hora && tempo.min < minuto);
          retorno = (segundos1 < segundos2);
       break;   
    }
