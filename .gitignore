@@ -51,6 +51,7 @@ $RECYCLE.BIN/
 # MQL5
 Experts/Advisors/
 Experts/Examples/
+Experts/*.ex5
 Images/
 Profiles/
 Scripts/
