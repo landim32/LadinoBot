@@ -23,12 +23,6 @@ class LadinoAutoTrend {
       double ultimaResistencia(ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15);
 };
 
-LadinoAutoTrend::LadinoAutoTrend() {
-}
-
-LadinoAutoTrend::~LadinoAutoTrend() {
-}
-
 double LadinoAutoTrend::posicaoLTB(long chart_id, datetime tempo) {
    string nome = "ltb_" + IntegerToString(chart_id);
    return ObjectGetValueByTime(chart_id, nome, tempo);
@@ -222,4 +216,10 @@ double LadinoAutoTrend::ultimaResistencia(ENUM_TIMEFRAMES periodo = PERIOD_M1, l
          resistencia = rt[i].high;
    }
    return resistencia;
+}
+
+LadinoAutoTrend::LadinoAutoTrend() {
+}
+
+LadinoAutoTrend::~LadinoAutoTrend() {
 }

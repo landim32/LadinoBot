@@ -76,6 +76,8 @@ Include/WinAPI/
 Include/Object.mqh
 Include/StdLibErr.mqh
 Include/VirtualKeys.mqh
+Include/_*.mqh
+Include/_*.mq5
 Indicators/*.ex5
 Indicators/Examples/
 Indicators/autotrendlines.mq5
