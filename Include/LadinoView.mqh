@@ -176,22 +176,11 @@ void LadinoView::atualizarT3SRLabel() {
 }
 
 void LadinoView::criarStatusControls() {
-   //const int x = 30;
-   
    criarLabel(0, labelPosicaoAtual + "Titulo", labelPosicaoAtualTexto, 30, 60);
    criarLabel(0, labelPosicaoAtual, "0.00", 30, 10);
    
    criarLabel(0, labelPosicaoGeral + "Titulo", labelPosicaoGeralTexto, 45, 60);
    criarLabel(0, labelPosicaoGeral, "0.00", 45, 10);
-   
-   /*
-   t2TendenciaSR = ALTA;
-   t3TendenciaSR = BAIXA;
-   atualizarT2SRLabel();
-   atualizarT3SRLabel();
-   */
-   //negociacaoAtual = ALTA;
-   //atualizarNegociacaoAtual();
 }
 
 void LadinoView::desenharLinhaTendencia() {

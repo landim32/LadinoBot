@@ -31,7 +31,6 @@ void LogPanel::criarLabel(const string nome, const string texto, const int y) {
    ObjectCreate(0, nome, OBJ_LABEL,0,0,0);           
    ObjectSetInteger(0, nome, OBJPROP_XDISTANCE, 5);
    ObjectSetInteger(0, nome, OBJPROP_YDISTANCE, y);
-   //ObjectSetInteger(0, nome, OBJPROP_YSIZE, 1000);
    ObjectSetInteger(0, nome, OBJPROP_XSIZE, 700);
    ObjectSetInteger(0, nome, OBJPROP_COLOR, clrWhiteSmoke);
    ObjectSetString(0, nome, OBJPROP_TEXT, texto);
@@ -53,7 +52,6 @@ void LogPanel::inicializar() {
 
 void LogPanel::adicionarLog(const string texto) {
    MqlDateTime tempo;
-   //TimeToStruct(iTimeMQL4(_Symbol,_Period,0), tempo);
    TimeToStruct(TimeCurrent(), tempo);
    string str = "";
    str += (tempo.hour > 9) ? IntegerToString(tempo.hour) : "0" + IntegerToString(tempo.hour);
