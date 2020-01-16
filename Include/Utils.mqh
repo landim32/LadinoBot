@@ -5,33 +5,47 @@
 //+------------------------------------------------------------------+
 #property copyright "Rodrigo Landim"
 #property link      "http://www.emagine.com.br"
-//+------------------------------------------------------------------+
-//| defines                                                          |
-//+------------------------------------------------------------------+
-// #define MacrosHello   "Hello, world!"
-// #define MacrosYear    2010
-//+------------------------------------------------------------------+
-//| DLL imports                                                      |
-//+------------------------------------------------------------------+
-// #import "user32.dll"
-//   int      SendMessageA(int hWnd,int Msg,int wParam,int lParam);
-// #import "my_expert.dll"
-//   int      ExpertRecalculate(int wParam,int lParam);
-// #import
-//+------------------------------------------------------------------+
-//| EX5 imports                                                      |
-//+------------------------------------------------------------------+
-// #import "stdlib.ex5"
-//   string ErrorDescription(int error_code);
-// #import
-//+------------------------------------------------------------------+
+#property version   "0.80"
 
-enum SENTIDO_OPERACAO {
+const int VELA_VERIFICA_QUANTIDADE = 100;
+
+enum ENUM_VELA_FORMATO {
+   FORMATO_NENHUM,
+   FORMATO_CURTA,
+   FORMATO_LONGA,
+   FORMATO_DOJI,
+   FORMATO_MARTELO,
+   FORMATO_MARTELO_INVERTIDO,
+   FORMATO_MARIBOZU,
+   FORMATO_MARIBOZU_LONGO,
+   FORMATO_SPIN_TOP
+};
+
+enum ENUM_VELA_PADRAO {
+   INDEFINIDO,
+   INSIDE_CANDLE_ALTA,
+   INSIDE_CANDLE_BAIXA,
+   ENFORCADO,
+   ESTRELA_CADENTE,
+   MARTELO,
+   MARTELO_INVERTIDO,
+   BELT_HOLD_BULL,
+   BELT_HOLD_BEAR
+};
+
+enum ENUM_VELA_TIPO {
+   NENHUM,
+   COMPRADORA,
+   VENDEDORA
+};
+
+enum ENUM_OPERACAO {
    COMPRAR_VENDER,   // Buy and Sell
    APENAS_COMPRAR,   // Only Buy
    APENAS_VENDER     // Only Sell
 };
 
+/*
 enum TIPO_OPERACAO {
    LIQUIDO,
    ROMPIMENTO,
@@ -42,21 +56,22 @@ enum TIPO_OPERACAO {
    SCALPER_CONTRA,
    CRUZAMENTO_MM
 };
+*/
 
-enum SITUACAO_ROBO {
+enum ENUM_SITUACAO_ROBO {
    INICIALIZADO,
    ATIVO,
    INATIVO,
    FECHANDO
 };
 
-enum SINAL_TENDENCIA {
+enum ENUM_SINAL_TENDENCIA {
    INDEFINIDA,
    ALTA,
    BAIXA
 };
 
-enum SINAL_POSICAO {
+enum ENUM_SINAL_POSICAO {
    NENHUMA,
    COMPRADO,
    VENDIDO
@@ -111,6 +126,130 @@ enum ENUM_HORARIO_CONDICAO {
    IGUAL_OU_MENOR_QUE,
    MAIOR_QUE,
    MENOR_QUE
+};
+
+enum ENUM_TEMPO_GRAFICO {
+   T1,
+   T2,
+   T3
+};
+
+enum ENUM_ENTRADA {
+   HILO_CRUZ_MM_T1_TICK = 0,           // HiLo/MM T1 (Tick)
+   HILO_CRUZ_MM_T2_TICK = 1,           // HiLo/MM T2 (Tick)
+   HILO_CRUZ_MM_T3_TICK = 2,           // HiLo/MM T3 (Tick)
+   HILO_CRUZ_MM_T1_FECHAMENTO = 3,     // HiLo/MM T1 (Close)
+   HILO_CRUZ_MM_T2_FECHAMENTO = 4,     // HiLo/MM T2 (Close)
+   HILO_CRUZ_MM_T3_FECHAMENTO = 5,     // HiLo/MM T3 (Close)
+   APENAS_TENDENCIA_T1 = 12,           // Only Trend T1
+   APENAS_TENDENCIA_T2 = 13,           // Only Trend T2
+   APENAS_TENDENCIA_T3 = 14            // Only Trend T3
+};
+
+enum ENUM_RISCO {
+   RISCO_NORMAL = 0,       // Normal
+   RISCO_PROGRESSIVO = 1   // Progressive
+};
+
+enum ENUM_OBJETIVO {
+   OBJETIVO_NENHUM = 0,             // Nothing to do
+   OBJETIVO_FIXO = 1,               // Fixed Position
+   OBJETIVO_ROMPIMENTO_LT = 2,      // Trendline Break
+   OBJETIVO_DUNNIGAN = 3,           // Dunnigan Price Action
+   OBJETIVO_T1_FIBO_0382 = 4,       // T1 Fibo 38,2
+   OBJETIVO_T2_FIBO_0382 = 5,       // T2 Fibo 38,2
+   OBJETIVO_T3_FIBO_0382 = 6,       // T3 Fibo 38,2
+   OBJETIVO_T1_FIBO_0618 = 7,       // T1 Fibo 61,8
+   OBJETIVO_T2_FIBO_0618 = 8,       // T2 Fibo 61,8
+   OBJETIVO_T3_FIBO_0618 = 9,       // T3 Fibo 61,8
+   OBJETIVO_T1_FIBO_1000 = 10,      // T1 Fibo 100
+   OBJETIVO_T2_FIBO_1000 = 11,      // T2 Fibo 100
+   OBJETIVO_T3_FIBO_1000 = 12,      // T3 Fibo 100
+   OBJETIVO_T1_FIBO_1382 = 13,      // T1 Fibo 138,2
+   OBJETIVO_T2_FIBO_1382 = 14,      // T2 Fibo 138,2
+   OBJETIVO_T3_FIBO_1382 = 15,      // T3 Fibo 138,2
+   OBJETIVO_T1_FIBO_1618 = 16,      // T1 Fibo 161,8
+   OBJETIVO_T2_FIBO_1618 = 17,      // T2 Fibo 161,8
+   OBJETIVO_T3_FIBO_1618 = 18,      // T3 Fibo 161,8
+   OBJETIVO_T1_FIBO_2000 = 19,      // T1 Fibo 200
+   OBJETIVO_T2_FIBO_2000 = 20,      // T2 Fibo 200
+   OBJETIVO_T3_FIBO_2000 = 21,      // T3 Fibo 200
+   OBJETIVO_T1_FIBO_2618 = 22,      // T1 Fibo 261,8
+   OBJETIVO_T2_FIBO_2618 = 23,      // T2 Fibo 261,8
+   OBJETIVO_T3_FIBO_2618 = 24       // T3 Fibo 261,8
+};
+
+enum ENUM_STOP {
+   STOP_FIXO = 0,             // Stop Fixed
+   STOP_T1_HILO = 1,          // T1 HiLo
+   STOP_T2_HILO = 2,          // T2 HiLo
+   STOP_T3_HILO = 3,          // T3 HiLo
+   STOP_T1_TOPO_FUNDO = 4,    // T1 Top/Bottom
+   STOP_T2_TOPO_FUNDO = 5,    // T2 Top/Bottom
+   STOP_T3_TOPO_FUNDO = 6,    // T3 Top/Bottom
+   STOP_T1_VELA_ATENRIOR = 7, // T1 Prior Candle
+   STOP_T2_VELA_ATENRIOR = 8, // T2 Prior Candle
+   STOP_T3_VELA_ATENRIOR = 9, // T3 Prior Candle
+   STOP_T1_VELA_ATUAL = 10,    // T1 Current Candle
+   STOP_T2_VELA_ATUAL = 11,   // T2 Current Candle
+   STOP_T3_VELA_ATUAL = 12    // T3 Current Candle
+};
+
+enum ENUM_OPERACAO_SITUACAO {
+   SITUACAO_ABERTA,
+   SITUACAO_BREAK_EVEN,
+   SITUACAO_OBJETIVO1,
+   SITUACAO_OBJETIVO2,
+   SITUACAO_OBJETIVO3,
+   SITUACAO_FECHADA
+};
+
+enum ENUM_SR {
+   TIPO_SUPORTE,
+   TIPO_RESISTENCIA
+};
+
+enum ENUM_ATIVO {
+   ATIVO_INDICE,  // Indice
+   ATIVO_ACAO     // Stock
+};
+
+struct TRADE_POSICAO {
+   double precoEntrada;
+   double corretagem;
+   double volumeInicial;
+   double volumeAtual;
+};
+
+struct TRADE_FECHADO {
+   datetime data;
+   int sucesso;
+   int falha;
+   double corretagem;
+   double financeiro;
+};
+
+struct DADOS_SR {
+   int index;
+   datetime data;
+   double posicao;
+   ENUM_SR tipo;
+};
+
+struct VELA {
+   datetime tempo;
+   double abertura;
+   double maxima;
+   double minima;
+   double fechamento;
+   double corpo;
+   double pavil;
+   double sombra_superior;
+   double sombra_inferior;
+   double tamanho;
+   ENUM_SINAL_TENDENCIA tendencia;
+   ENUM_VELA_TIPO tipo;
+   ENUM_VELA_FORMATO formato;
 };
 
 datetime iTimeMQL4(string symbol,int tf,int index) {

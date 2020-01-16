@@ -13,16 +13,16 @@
 
 class LadinoHiLo {
    private:
-      SINAL_TENDENCIA _tendenciaAtual;
+      ENUM_SINAL_TENDENCIA _tendenciaAtual;
       int HiLoHandle;
       int _periodo;
    public:
       LadinoHiLo();
       bool inicializar(int periodo = 4, ENUM_TIMEFRAMES tempoGrafico = PERIOD_CURRENT, long chartId = 0);
       double posicaoAtual();
-      SINAL_TENDENCIA tendenciaAtual();
+      ENUM_SINAL_TENDENCIA tendenciaAtual();
       bool verificarTendencia();
-      virtual void onTendenciaMudou(SINAL_TENDENCIA novaTendencia);
+      virtual void onTendenciaMudou(ENUM_SINAL_TENDENCIA novaTendencia);
 };
 
 LadinoHiLo::LadinoHiLo() {
@@ -51,7 +51,7 @@ double LadinoHiLo::posicaoAtual() {
    return hiloBuffer[0];
 }
 
-SINAL_TENDENCIA LadinoHiLo::tendenciaAtual() {
+ENUM_SINAL_TENDENCIA LadinoHiLo::tendenciaAtual() {
    double hiloTendencia[1];
    if(CopyBuffer(HiLoHandle,4,0,1,hiloTendencia)!=1) {
       Print("CopyBuffer from HiLo failed, no data");
@@ -66,7 +66,7 @@ SINAL_TENDENCIA LadinoHiLo::tendenciaAtual() {
 }
 
 bool LadinoHiLo::verificarTendencia() {
-   SINAL_TENDENCIA tendencia = tendenciaAtual();
+   ENUM_SINAL_TENDENCIA tendencia = tendenciaAtual();
    if (_tendenciaAtual != tendencia) {
       _tendenciaAtual = tendencia;
       onTendenciaMudou(_tendenciaAtual);
@@ -74,6 +74,6 @@ bool LadinoHiLo::verificarTendencia() {
    return true;
 }
 
-void LadinoHiLo::onTendenciaMudou(SINAL_TENDENCIA novaTendencia) {
+void LadinoHiLo::onTendenciaMudou(ENUM_SINAL_TENDENCIA novaTendencia) {
    // 
 }
