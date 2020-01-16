@@ -73,6 +73,8 @@ Include/Strings/
 Include/Tools/
 Include/Trade/
 Include/WinAPI/
+Include/CBookBarsPanel.mqh
+Include/MovingAverages.mqh
 Include/Object.mqh
 Include/StdLibErr.mqh
 Include/VirtualKeys.mqh
@@ -82,8 +84,10 @@ Indicators/*.ex5
 Indicators/Examples/
 Indicators/autotrendlines.mq5
 Indicators/b-clock.mq5
+Indicators/bb.mq5
 Indicators/BookEventProcessor1.mq5
 Indicators/BookEventProcessor2.mq5
+Indicators/candletime.mq5
 Indicators/candlestick_patterns.mq5
 Indicators/candlestick_type_color.mq5
 Indicators/chartobjects.mq5
