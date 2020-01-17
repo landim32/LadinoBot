@@ -6,11 +6,11 @@
 #property copyright "Copyright 2016, MetaQuotes Software Corp."
 #property link      "https://www.mql5.com"
 
-#include <LadinoBot/Strategies/LadinoCandlestick.mqh>
-#include <LadinoBot/Strategies/LadinoSR.mqh>
-#include <LadinoBot/Trade/LadinoEntrada.mqh>
+#include <LadinoBot/Strategies/Candlestick.mqh>
+#include <LadinoBot/Strategies/SR.mqh>
+#include <LadinoBot/Trade/TradeIn.mqh>
 
-class LadinoSaida: public LadinoEntrada {
+class TradeOut: public TradeIn {
    private:
    public:
       ENUM_STOP tipoStopAtual();
@@ -31,7 +31,7 @@ class LadinoSaida: public LadinoEntrada {
       bool verificarSaida();
 };
 
-ENUM_STOP LadinoSaida::tipoStopAtual() {
+ENUM_STOP TradeOut::tipoStopAtual() {
    if (_operacaoAtual == SITUACAO_OBJETIVO1)
       return getObjetivoStop1();
    else if (_operacaoAtual == SITUACAO_OBJETIVO2)
@@ -42,7 +42,7 @@ ENUM_STOP LadinoSaida::tipoStopAtual() {
       return getStopInicial();
 }
 
-double LadinoSaida::pegarPosicaoStop(ENUM_SINAL_POSICAO posicao) {
+double TradeOut::pegarPosicaoStop(ENUM_SINAL_POSICAO posicao) {
    double posicaoStop = 0;
    ENUM_STOP tipoStop = tipoStopAtual();
    switch (tipoStop) {
@@ -132,7 +132,7 @@ double LadinoSaida::pegarPosicaoStop(ENUM_SINAL_POSICAO posicao) {
 }
 
 
-bool LadinoSaida::eTakeProfitT1(ENUM_OBJETIVO condicao) {
+bool TradeOut::eTakeProfitT1(ENUM_OBJETIVO condicao) {
    return (
       condicao == OBJETIVO_T1_FIBO_0382 ||
       condicao == OBJETIVO_T1_FIBO_0618 ||
@@ -144,7 +144,7 @@ bool LadinoSaida::eTakeProfitT1(ENUM_OBJETIVO condicao) {
    );
 }
 
-bool LadinoSaida::eTakeProfitT2(ENUM_OBJETIVO condicao) {
+bool TradeOut::eTakeProfitT2(ENUM_OBJETIVO condicao) {
    return (
       condicao == OBJETIVO_T2_FIBO_0382 ||
       condicao == OBJETIVO_T2_FIBO_0618 ||
@@ -156,7 +156,7 @@ bool LadinoSaida::eTakeProfitT2(ENUM_OBJETIVO condicao) {
    );
 }
 
-bool LadinoSaida::eTakeProfitT3(ENUM_OBJETIVO condicao) {
+bool TradeOut::eTakeProfitT3(ENUM_OBJETIVO condicao) {
    return (
       condicao == OBJETIVO_T3_FIBO_0382 ||
       condicao == OBJETIVO_T3_FIBO_0618 ||
@@ -169,7 +169,7 @@ bool LadinoSaida::eTakeProfitT3(ENUM_OBJETIVO condicao) {
 }
 
 
-double LadinoSaida::pegarValorFibo(ENUM_OBJETIVO condicao, double preco) {
+double TradeOut::pegarValorFibo(ENUM_OBJETIVO condicao, double preco) {
    double retorno = 0;
    switch (condicao) {
       case OBJETIVO_T1_FIBO_0382:
@@ -214,7 +214,7 @@ double LadinoSaida::pegarValorFibo(ENUM_OBJETIVO condicao, double preco) {
    return retorno;
 }
 
-double LadinoSaida::pegarTakeProfitFibo(ENUM_SINAL_POSICAO tendencia, ENUM_TEMPO_GRAFICO tempo, ENUM_OBJETIVO condicao, double preco) {
+double TradeOut::pegarTakeProfitFibo(ENUM_SINAL_POSICAO tendencia, ENUM_TEMPO_GRAFICO tempo, ENUM_OBJETIVO condicao, double preco) {
    double suporteAtual = 0;
    double resistenciaAtual = 0;
    DADOS_SR dados[];
@@ -245,7 +245,7 @@ double LadinoSaida::pegarTakeProfitFibo(ENUM_SINAL_POSICAO tendencia, ENUM_TEMPO
    return 0;
 }
 
-void LadinoSaida::adicionarTakeProfitFibo(ENUM_SINAL_POSICAO tendencia, ENUM_OBJETIVO condicao, double preco, double posicao, double vol) {
+void TradeOut::adicionarTakeProfitFibo(ENUM_SINAL_POSICAO tendencia, ENUM_OBJETIVO condicao, double preco, double posicao, double vol) {
 
    double tp = 0;
    if (condicao == OBJETIVO_FIXO) {
@@ -281,14 +281,14 @@ void LadinoSaida::adicionarTakeProfitFibo(ENUM_SINAL_POSICAO tendencia, ENUM_OBJ
    }
 }
 
-void LadinoSaida::configurarTakeProfit(ENUM_SINAL_POSICAO tendencia, double preco) {
+void TradeOut::configurarTakeProfit(ENUM_SINAL_POSICAO tendencia, double preco) {
    adicionarTakeProfitFibo(tendencia, getObjetivoCondicao1(), preco, getObjetivoPosicao1(), getObjetivoVolume1());
    adicionarTakeProfitFibo(tendencia, getObjetivoCondicao2(), preco, getObjetivoPosicao2(), getObjetivoVolume2());
    adicionarTakeProfitFibo(tendencia, getObjetivoCondicao3(), preco, getObjetivoPosicao3(), getObjetivoVolume3());
 }
 
 
-double LadinoSaida::pegarProximoObjetivoVolume() {
+double TradeOut::pegarProximoObjetivoVolume() {
    if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
       return getObjetivoVolume1();
    else if (_operacaoAtual == SITUACAO_OBJETIVO1)
@@ -300,7 +300,7 @@ double LadinoSaida::pegarProximoObjetivoVolume() {
 }
 
 
-void LadinoSaida::verificarObjetivoFixo() {
+void TradeOut::verificarObjetivoFixo() {
    double preco = this.getPrecoEntrada();
    if (this.getPosicaoAtual() == COMPRADO) {
       if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
@@ -324,7 +324,7 @@ void LadinoSaida::verificarObjetivoFixo() {
    }
 }
 
-void LadinoSaida::executarBreakEven() {
+void TradeOut::executarBreakEven() {
    if (this.getPosicaoAtual() == COMPRADO) {
       if (getBreakEven() > 0 && _precoCompra >= (this.getPrecoEntrada() + getBreakEven())) {
          if (_operacaoAtual == SITUACAO_ABERTA)
@@ -353,7 +353,7 @@ void LadinoSaida::executarBreakEven() {
    }
 }
 
-void LadinoSaida::modificarStop() {
+void TradeOut::modificarStop() {
    double tickMinimo = SymbolInfoDouble(Symbol(), SYMBOL_TRADE_TICK_SIZE);
    if (this.getPosicaoAtual() == COMPRADO) {
       double sl = pegarPosicaoStop(COMPRADO);
@@ -378,7 +378,7 @@ void LadinoSaida::modificarStop() {
 }
 
 
-bool LadinoSaida::verificarSaida() {
+bool TradeOut::verificarSaida() {
    
    atualizarPreco();
    
@@ -424,7 +424,7 @@ bool LadinoSaida::verificarSaida() {
    return false;
 }
 
-void LadinoSaida::executarObjetivo(ENUM_SINAL_POSICAO tendencia) {
+void TradeOut::executarObjetivo(ENUM_SINAL_POSICAO tendencia) {
    if (getObjetivoCondicao1() == OBJETIVO_ROMPIMENTO_LT) {   
       double volume = pegarProximoObjetivoVolume();
       if (volume > 0) {
