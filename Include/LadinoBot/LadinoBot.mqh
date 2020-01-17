@@ -7,8 +7,8 @@
 #property link      "https://www.mql5.com"
 #property version   "1.00"
 
-#include <LadinoBot/LogPanel.mqh>
-#include <LadinoBot/LadinoView.mqh>
+#include <LadinoBot/Views/LogPanel.mqh>
+#include <LadinoBot/Views/LadinoView.mqh>
 
 LogPanel _logs;
 

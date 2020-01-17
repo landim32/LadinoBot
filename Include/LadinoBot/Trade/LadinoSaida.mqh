@@ -6,9 +6,9 @@
 #property copyright "Copyright 2016, MetaQuotes Software Corp."
 #property link      "https://www.mql5.com"
 
-#include <LadinoBot/LadinoCandlestick.mqh>
-#include <LadinoBot/LadinoSR.mqh>
-#include <LadinoBot/LadinoEntrada.mqh>
+#include <LadinoBot/Strategies/LadinoCandlestick.mqh>
+#include <LadinoBot/Strategies/LadinoSR.mqh>
+#include <LadinoBot/Trade/LadinoEntrada.mqh>
 
 class LadinoSaida: public LadinoEntrada {
    private:
