@@ -33,7 +33,7 @@ void LadinoBot::escreverLog(string msg) {
 }
 
 void LadinoBot::aoAbrirPosicao() {
-   operacaoAtual = SITUACAO_ABERTA;
+   _operacaoAtual = SITUACAO_ABERTA;
    tendenciaMudou = false;
    tentativaCandle = true;
 }
@@ -41,7 +41,7 @@ void LadinoBot::aoAbrirPosicao() {
 void LadinoBot::aoFecharPosicao(double saldo) {
    _negociacaoAtual = INDEFINIDA;
    atualizarNegociacaoAtual();
-   operacaoAtual = SITUACAO_ABERTA;
+   _operacaoAtual = SITUACAO_ABERTA;
 }
 
 void LadinoBot::aoAtingirGanhoMax() {

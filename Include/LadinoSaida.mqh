@@ -32,11 +32,11 @@ class LadinoSaida: public LadinoEntrada {
 };
 
 ENUM_STOP LadinoSaida::tipoStopAtual() {
-   if (operacaoAtual == SITUACAO_OBJETIVO1)
+   if (_operacaoAtual == SITUACAO_OBJETIVO1)
       return getObjetivoStop1();
-   else if (operacaoAtual == SITUACAO_OBJETIVO2)
+   else if (_operacaoAtual == SITUACAO_OBJETIVO2)
       return getObjetivoStop2();
-   else if (operacaoAtual == SITUACAO_OBJETIVO3)
+   else if (_operacaoAtual == SITUACAO_OBJETIVO3)
       return getObjetivoStop3();
    else
       return getStopInicial();
@@ -117,13 +117,13 @@ double LadinoSaida::pegarPosicaoStop(ENUM_SINAL_POSICAO posicao) {
          break;
    }
    if (posicao == COMPRADO) {
-      if (operacaoAtual == SITUACAO_ABERTA || operacaoAtual == SITUACAO_BREAK_EVEN)
+      if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
          posicaoStop -= getStopExtra();
       else
          posicaoStop -= getAumentoStopExtra();
    }
    else if (posicao == VENDIDO) {
-      if (operacaoAtual == SITUACAO_ABERTA || operacaoAtual == SITUACAO_BREAK_EVEN)
+      if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
          posicaoStop += getStopExtra();
       else
          posicaoStop += getAumentoStopExtra();
@@ -289,11 +289,11 @@ void LadinoSaida::configurarTakeProfit(ENUM_SINAL_POSICAO tendencia, double prec
 
 
 double LadinoSaida::pegarProximoObjetivoVolume() {
-   if (operacaoAtual == SITUACAO_ABERTA || operacaoAtual == SITUACAO_BREAK_EVEN)
+   if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
       return getObjetivoVolume1();
-   else if (operacaoAtual == SITUACAO_OBJETIVO1)
+   else if (_operacaoAtual == SITUACAO_OBJETIVO1)
       return getObjetivoVolume2();
-   else if (operacaoAtual == SITUACAO_OBJETIVO2)
+   else if (_operacaoAtual == SITUACAO_OBJETIVO2)
       return getObjetivoVolume3();
    else 
       return 0;
@@ -303,21 +303,21 @@ double LadinoSaida::pegarProximoObjetivoVolume() {
 void LadinoSaida::verificarObjetivoFixo() {
    double preco = this.getPrecoEntrada();
    if (this.getPosicaoAtual() == COMPRADO) {
-      if (operacaoAtual == SITUACAO_ABERTA || operacaoAtual == SITUACAO_BREAK_EVEN)
+      if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
          preco += getObjetivoPosicao1();
-      else if (operacaoAtual == SITUACAO_OBJETIVO1) 
+      else if (_operacaoAtual == SITUACAO_OBJETIVO1) 
          preco += getObjetivoPosicao2();
-      else if (operacaoAtual == SITUACAO_OBJETIVO2)
+      else if (_operacaoAtual == SITUACAO_OBJETIVO2)
          preco += getObjetivoPosicao3();
       if (_precoCompra >= preco)
          alterarOperacaoAtual();
    }
    else if (this.getPosicaoAtual() == VENDIDO) {
-      if (operacaoAtual == SITUACAO_ABERTA || operacaoAtual == SITUACAO_BREAK_EVEN)
+      if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
          preco -= getObjetivoPosicao1();
-      else if (operacaoAtual == SITUACAO_OBJETIVO1) 
+      else if (_operacaoAtual == SITUACAO_OBJETIVO1) 
          preco -= getObjetivoPosicao2();
-      else if (operacaoAtual == SITUACAO_OBJETIVO2)
+      else if (_operacaoAtual == SITUACAO_OBJETIVO2)
          preco -= getObjetivoPosicao3();
       if (_precoVenda <= preco)
          alterarOperacaoAtual();
@@ -327,8 +327,8 @@ void LadinoSaida::verificarObjetivoFixo() {
 void LadinoSaida::executarBreakEven() {
    if (this.getPosicaoAtual() == COMPRADO) {
       if (getBreakEven() > 0 && _precoCompra >= (this.getPrecoEntrada() + getBreakEven())) {
-         if (operacaoAtual == SITUACAO_ABERTA)
-            operacaoAtual = SITUACAO_BREAK_EVEN;
+         if (_operacaoAtual == SITUACAO_ABERTA)
+            _operacaoAtual = SITUACAO_BREAK_EVEN;
          double sl = this.getPrecoEntrada() + getBreakEvenValor();
          if (sl > this.getStopLoss()) {
             if (this.modificarPosicao(sl, 0))
@@ -340,8 +340,8 @@ void LadinoSaida::executarBreakEven() {
    }
    else if (this.getPosicaoAtual() == VENDIDO) {
       if (getBreakEven() > 0 && _precoVenda <= (this.getPrecoEntrada() - getBreakEven())) {      
-         if (operacaoAtual == SITUACAO_ABERTA)
-            operacaoAtual = SITUACAO_BREAK_EVEN;
+         if (_operacaoAtual == SITUACAO_ABERTA)
+            _operacaoAtual = SITUACAO_BREAK_EVEN;
          double sl = this.getPrecoEntrada() - getBreakEvenValor();
          if (sl < this.getStopLoss()) {
             if (this.modificarPosicao(sl, 0))
@@ -401,11 +401,11 @@ bool LadinoSaida::verificarSaida() {
    }
 
    ENUM_OBJETIVO objetivo = OBJETIVO_NENHUM;
-   if (operacaoAtual == SITUACAO_ABERTA || operacaoAtual == SITUACAO_BREAK_EVEN)
+   if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
       objetivo = getObjetivoCondicao1();
-   else if (operacaoAtual == SITUACAO_OBJETIVO1)
+   else if (_operacaoAtual == SITUACAO_OBJETIVO1)
       objetivo = getObjetivoCondicao2();
-   else if (operacaoAtual == SITUACAO_OBJETIVO2)
+   else if (_operacaoAtual == SITUACAO_OBJETIVO2)
       objetivo = getObjetivoCondicao3();
     
    if (objetivo == OBJETIVO_FIXO) {
