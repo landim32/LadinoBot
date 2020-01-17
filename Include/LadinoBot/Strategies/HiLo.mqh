@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                                   LadinoHiLo.mqh |
+//|                                                         HiLo.mqh |
 //|                                                   Rodrigo Landim |
 //|                                        http://www.emagine.com.br |
 //+------------------------------------------------------------------+
@@ -9,15 +9,15 @@
 
 #resource "\\Indicators\\gann_hi_lo_activator_ssl.ex5"
 
-#include <Utils.mqh>
+#include <LadinoBot/Utils.mqh>
 
-class LadinoHiLo {
+class HiLo {
    private:
       ENUM_SINAL_TENDENCIA _tendenciaAtual;
       int HiLoHandle;
       int _periodo;
    public:
-      LadinoHiLo();
+      HiLo();
       bool inicializar(int periodo = 4, ENUM_TIMEFRAMES tempoGrafico = PERIOD_CURRENT, long chartId = 0);
       double posicaoAtual();
       ENUM_SINAL_TENDENCIA tendenciaAtual();
@@ -25,13 +25,13 @@ class LadinoHiLo {
       virtual void onTendenciaMudou(ENUM_SINAL_TENDENCIA novaTendencia);
 };
 
-LadinoHiLo::LadinoHiLo() {
+HiLo::HiLo() {
    HiLoHandle = 0;
    _tendenciaAtual = INDEFINIDA;
    _periodo = 4;
 }
 
-bool LadinoHiLo::inicializar(int periodo = 4, ENUM_TIMEFRAMES tempoGrafico = PERIOD_CURRENT, long chartId = 0) {
+bool HiLo::inicializar(int periodo = 4, ENUM_TIMEFRAMES tempoGrafico = PERIOD_CURRENT, long chartId = 0) {
    _periodo = periodo;
    HiLoHandle = iCustom(_Symbol, tempoGrafico, "::Indicators\\gann_hi_lo_activator_ssl", _periodo);
    if(HiLoHandle == INVALID_HANDLE) {
@@ -42,7 +42,7 @@ bool LadinoHiLo::inicializar(int periodo = 4, ENUM_TIMEFRAMES tempoGrafico = PER
    return true;
 }
 
-double LadinoHiLo::posicaoAtual() {
+double HiLo::posicaoAtual() {
    double hiloBuffer[1];
    if(CopyBuffer(HiLoHandle,0,0,1,hiloBuffer)!=1) {
       Print("CopyBuffer from HiLo failed, no data");
@@ -51,7 +51,7 @@ double LadinoHiLo::posicaoAtual() {
    return hiloBuffer[0];
 }
 
-ENUM_SINAL_TENDENCIA LadinoHiLo::tendenciaAtual() {
+ENUM_SINAL_TENDENCIA HiLo::tendenciaAtual() {
    double hiloTendencia[1];
    if(CopyBuffer(HiLoHandle,4,0,1,hiloTendencia)!=1) {
       Print("CopyBuffer from HiLo failed, no data");
@@ -65,7 +65,7 @@ ENUM_SINAL_TENDENCIA LadinoHiLo::tendenciaAtual() {
       return INDEFINIDA;
 }
 
-bool LadinoHiLo::verificarTendencia() {
+bool HiLo::verificarTendencia() {
    ENUM_SINAL_TENDENCIA tendencia = tendenciaAtual();
    if (_tendenciaAtual != tendencia) {
       _tendenciaAtual = tendencia;
@@ -74,6 +74,6 @@ bool LadinoHiLo::verificarTendencia() {
    return true;
 }
 
-void LadinoHiLo::onTendenciaMudou(ENUM_SINAL_TENDENCIA novaTendencia) {
+void HiLo::onTendenciaMudou(ENUM_SINAL_TENDENCIA novaTendencia) {
    // 
 }

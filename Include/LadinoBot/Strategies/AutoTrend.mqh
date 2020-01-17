@@ -1,16 +1,16 @@
 //+------------------------------------------------------------------+
-//|                                              LadinoAutoTrend.mqh |
+//|                                                    AutoTrend.mqh |
 //|                                                   Rodrigo Landim |
 //|                                        http://www.emagine.com.br |
 //+------------------------------------------------------------------+
 #property copyright "Rodrigo Landim"
 #property link      "http://www.emagine.com.br"
 
-class LadinoAutoTrend {
+class AutoTrend {
    private:
    public:
-      LadinoAutoTrend();
-      ~LadinoAutoTrend();
+      AutoTrend();
+      ~AutoTrend();
 
       double posicaoLTB(long chart_id, datetime tempo);
       double posicaoLTA(long chart_id, datetime tempo);
@@ -23,17 +23,17 @@ class LadinoAutoTrend {
       double ultimaResistencia(ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15);
 };
 
-double LadinoAutoTrend::posicaoLTB(long chart_id, datetime tempo) {
+double AutoTrend::posicaoLTB(long chart_id, datetime tempo) {
    string nome = "ltb_" + IntegerToString(chart_id);
    return ObjectGetValueByTime(chart_id, nome, tempo);
 }
 
-double LadinoAutoTrend::posicaoLTA(long chart_id, datetime tempo) {
+double AutoTrend::posicaoLTA(long chart_id, datetime tempo) {
    string nome = "lta_" + IntegerToString(chart_id);
    return ObjectGetValueByTime(chart_id, nome, tempo);
 }
 
-bool LadinoAutoTrend::rompeuLTB(long chart_id, datetime tempo) {
+bool AutoTrend::rompeuLTB(long chart_id, datetime tempo) {
    double tickMinimo = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_SIZE);
    double preco = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
    preco = NormalizeDouble(preco, _Digits);
@@ -44,7 +44,7 @@ bool LadinoAutoTrend::rompeuLTB(long chart_id, datetime tempo) {
    return preco > posicaoAtual;
 }
 
-bool LadinoAutoTrend::rompeuLTA(long chart_id, datetime tempo) {
+bool AutoTrend::rompeuLTA(long chart_id, datetime tempo) {
    double tickMinimo = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_SIZE);
    double preco = SymbolInfoDouble(_Symbol, SYMBOL_BID);
    preco = NormalizeDouble(preco, _Digits);
@@ -55,7 +55,7 @@ bool LadinoAutoTrend::rompeuLTA(long chart_id, datetime tempo) {
    return preco < posicaoAtual;
 }
 
-int LadinoAutoTrend::gerarLTB(datetime inicio, ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
+int AutoTrend::gerarLTB(datetime inicio, ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
 
    MqlRates rt[];
    if(CopyRates(_Symbol, periodo, 0, velas, rt) != velas) {
@@ -119,7 +119,7 @@ int LadinoAutoTrend::gerarLTB(datetime inicio, ENUM_TIMEFRAMES periodo = PERIOD_
    return velaDireitaIndex - velaEsquerdaIndex;
 }
 
-int LadinoAutoTrend::gerarLTA(datetime inicio, ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
+int AutoTrend::gerarLTA(datetime inicio, ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
 
    MqlRates rt[];
    if(CopyRates(_Symbol, periodo, 0, velas, rt) != velas) {
@@ -185,12 +185,12 @@ int LadinoAutoTrend::gerarLTA(datetime inicio, ENUM_TIMEFRAMES periodo = PERIOD_
    return velaDireitaIndex - velaEsquerdaIndex;
 }
 
-void LadinoAutoTrend::limparLinha(long chart_id = 0) {
+void AutoTrend::limparLinha(long chart_id = 0) {
    ObjectDelete(chart_id, "lta_" + IntegerToString(chart_id));
    ObjectDelete(chart_id, "ltb_" + IntegerToString(chart_id));
 }
 
-double LadinoAutoTrend::ultimoSuporte(ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
+double AutoTrend::ultimoSuporte(ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
    MqlRates rt[];
    if(CopyRates(_Symbol, periodo, 0, velas, rt) != velas) {
       Print("CopyRates of ",_Symbol," failed, no history");
@@ -204,7 +204,7 @@ double LadinoAutoTrend::ultimoSuporte(ENUM_TIMEFRAMES periodo = PERIOD_M1, long 
    return suporte;
 }
 
-double LadinoAutoTrend::ultimaResistencia(ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
+double AutoTrend::ultimaResistencia(ENUM_TIMEFRAMES periodo = PERIOD_M1, long chart_id = 0, int velas = 15) {
    MqlRates rt[];
    if(CopyRates(_Symbol, periodo, 0, velas, rt) != velas) {
       Print("CopyRates of ",_Symbol," failed, no history");
@@ -218,8 +218,8 @@ double LadinoAutoTrend::ultimaResistencia(ENUM_TIMEFRAMES periodo = PERIOD_M1, l
    return resistencia;
 }
 
-LadinoAutoTrend::LadinoAutoTrend() {
+AutoTrend::AutoTrend() {
 }
 
-LadinoAutoTrend::~LadinoAutoTrend() {
+AutoTrend::~AutoTrend() {
 }

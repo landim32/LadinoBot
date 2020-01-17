@@ -6,7 +6,7 @@
 #property copyright "Copyright 2016, MetaQuotes Software Corp."
 #property link      "https://www.mql5.com"
 
-#include <LadinoSaida.mqh>
+#include <LadinoBot/Trade/TradeOut.mqh>
 
 const string 
    labelPosicaoAtual = "labelPosicaoAtual", 
@@ -18,7 +18,7 @@ const string
    labelPosicaoAtualTexto = "$+:",
    labelPosicaoGeralTexto = "$$:";
 
-class LadinoView: public LadinoSaida {
+class LadinoView: public TradeOut {
    private:
       long t2chartid, t3chartid;
       int _MMT1Handle, _MMT2Handle, _MMT3Handle;
