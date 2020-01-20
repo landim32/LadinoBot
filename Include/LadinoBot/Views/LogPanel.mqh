@@ -11,7 +11,7 @@
 //+------------------------------------------------------------------+
 class LogPanel {
    private:
-      string logs[20];
+      string _logs[20];
       void criarLabel(const string nome, const string texto, const int y);
    public:
       LogPanel();
@@ -42,12 +42,12 @@ void LogPanel::criarLabel(const string nome, const string texto, const int y) {
 void LogPanel::inicializar() {
    
    int i, y = 20;
-   for (i = 1; i <= ArraySize(logs); i++) {
+   for (i = 1; i <= ArraySize(_logs); i++) {
       criarLabel("linha" + IntegerToString(i), ".", y);
       y += 12;
    }
-   for (i = 0; i < ArraySize(logs); i++)
-      logs[i] = ".";
+   for (i = 0; i < ArraySize(_logs); i++)
+      _logs[i] = ".";
 }
 
 void LogPanel::adicionarLog(const string texto) {
@@ -58,17 +58,17 @@ void LogPanel::adicionarLog(const string texto) {
    str += ":";
    str += (tempo.min > 9) ? IntegerToString(tempo.min) : "0" + IntegerToString(tempo.min);
    str += ". " + texto;
-   Print(logs[0]);
+   Print(_logs[0]);
    string nome = "";
    int i;
-   for (i = 2; i <= ArraySize(logs); i++) {
-      logs[i-2] = logs[i-1];
+   for (i = 2; i <= ArraySize(_logs); i++) {
+      _logs[i-2] = _logs[i-1];
    }
-   logs[ArraySize(logs) - 1] = str;
+   _logs[ArraySize(_logs) - 1] = str;
    
-   for (i = 1; i <= ArraySize(logs); i++) {
+   for (i = 1; i <= ArraySize(_logs); i++) {
       nome = "linha" + IntegerToString(i);
-      ObjectSetString(0, nome, OBJPROP_TEXT, logs[i - 1]);
+      ObjectSetString(0, nome, OBJPROP_TEXT, _logs[i - 1]);
    }
    
    ChartRedraw(0);

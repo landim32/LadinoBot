@@ -81,39 +81,39 @@ double TradeOut::pegarPosicaoStop(ENUM_SINAL_POSICAO posicao) {
          break;
       case STOP_T1_VELA_ATENRIOR:
          if (posicao == COMPRADO)
-            posicaoStop = t1VelaAnterior.minima;
+            posicaoStop = _t1VelaAnterior.minima;
          else if (posicao == VENDIDO)
-            posicaoStop = t1VelaAnterior.maxima;
+            posicaoStop = _t1VelaAnterior.maxima;
          break;
       case STOP_T2_VELA_ATENRIOR:
          if (posicao == COMPRADO)
-            posicaoStop = t2VelaAnterior.minima;
+            posicaoStop = _t2VelaAnterior.minima;
          else if (posicao == VENDIDO)
-            posicaoStop = t2VelaAnterior.maxima;
+            posicaoStop = _t2VelaAnterior.maxima;
          break;
       case STOP_T3_VELA_ATENRIOR:
          if (posicao == COMPRADO)
-            posicaoStop = t3VelaAnterior.minima;
+            posicaoStop = _t3VelaAnterior.minima;
          else if (posicao == VENDIDO)
-            posicaoStop = t3VelaAnterior.maxima;
+            posicaoStop = _t3VelaAnterior.maxima;
          break;
       case STOP_T1_VELA_ATUAL:
          if (posicao == COMPRADO)
-            posicaoStop = t1VelaAtual.minima;
+            posicaoStop = _t1VelaAtual.minima;
          else if (posicao == VENDIDO)
-            posicaoStop = t1VelaAtual.maxima;
+            posicaoStop = _t1VelaAtual.maxima;
          break;
       case STOP_T2_VELA_ATUAL:
          if (posicao == COMPRADO)
-            posicaoStop = t2VelaAtual.minima;
+            posicaoStop = _t2VelaAtual.minima;
          else if (posicao == VENDIDO)
-            posicaoStop = t2VelaAtual.maxima;
+            posicaoStop = _t2VelaAtual.maxima;
          break;
       case STOP_T3_VELA_ATUAL:
          if (posicao == COMPRADO)
-            posicaoStop = t3VelaAtual.minima;
+            posicaoStop = _t3VelaAtual.minima;
          else if (posicao == VENDIDO)
-            posicaoStop = t3VelaAtual.maxima;
+            posicaoStop = _t3VelaAtual.maxima;
          break;
    }
    if (posicao == COMPRADO) {

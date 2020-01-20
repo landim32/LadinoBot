@@ -20,7 +20,7 @@ const string
 
 class LadinoView: public TradeOut {
    private:
-      long t2chartid, t3chartid;
+      long _t2chartid, _t3chartid;
       int _MMT1Handle, _MMT2Handle, _MMT3Handle;
    public:
       LadinoView(void);
@@ -55,8 +55,8 @@ LadinoView::LadinoView(void) {
    _MMT2Handle = 0;
    _MMT3Handle = 0;
    
-   t2chartid = 0;
-   t3chartid = 0;
+   _t2chartid = 0;
+   _t3chartid = 0;
 } 
 
 double LadinoView::pegarMMT1() {
@@ -194,14 +194,14 @@ void LadinoView::desenharLinhaTendencia() {
 
 void LadinoView::desenharSetaCima(long chartId, datetime tempo, double preco) {
    string nome = "arrow_" + TimeToString(tempo);
-   ObjectCreate(t2chartid, nome, OBJ_ARROW_UP, 0, tempo, preco);
-   ObjectSetInteger(t2chartid, nome, OBJPROP_COLOR, clrLimeGreen);
+   ObjectCreate(_t2chartid, nome, OBJ_ARROW_UP, 0, tempo, preco);
+   ObjectSetInteger(_t2chartid, nome, OBJPROP_COLOR, clrLimeGreen);
 }
 
 void LadinoView::desenharSetaBaixo(long chartId, datetime tempo, double preco) {
    string nome = "arrow_" + TimeToString(tempo);
-   ObjectCreate(t2chartid, nome, OBJ_ARROW_DOWN, 0, tempo, preco);
-   ObjectSetInteger(t2chartid, nome, OBJPROP_COLOR, clrRed);
+   ObjectCreate(_t2chartid, nome, OBJ_ARROW_DOWN, 0, tempo, preco);
+   ObjectSetInteger(_t2chartid, nome, OBJPROP_COLOR, clrRed);
 }
 
 void LadinoView::t1DesenharSetaCima(datetime tempo, double preco) {
@@ -213,19 +213,19 @@ void LadinoView::t1DesenharSetaBaixo(datetime tempo, double preco) {
 }
 
 void LadinoView::t2DesenharSetaCima(datetime tempo, double preco) {
-   desenharSetaCima(t2chartid, tempo, preco);
+   desenharSetaCima(_t2chartid, tempo, preco);
 }
 
 void LadinoView::t2DesenharSetaBaixo(datetime tempo, double preco) {
-   desenharSetaBaixo(t2chartid, tempo, preco);
+   desenharSetaBaixo(_t2chartid, tempo, preco);
 }
 
 void LadinoView::t3DesenharSetaCima(datetime tempo, double preco) {
-   desenharSetaCima(t3chartid, tempo, preco);
+   desenharSetaCima(_t3chartid, tempo, preco);
 }
 
 void LadinoView::t3DesenharSetaBaixo(datetime tempo, double preco) {
-   desenharSetaBaixo(t3chartid, tempo, preco);
+   desenharSetaBaixo(_t3chartid, tempo, preco);
 }
 
 void LadinoView::inicializarPosicao() {
@@ -241,10 +241,10 @@ void LadinoView::atualizarPosicao(double precoOperacao, double precoAtual) {
 int LadinoView::inicializarView() {
    if (getT2GraficoExtra()) {
       int y = (getT3GraficoExtra()) ? 255 : 10;
-      t2chartid = novoGrafico("grafico_secundario", getT2TempoGrafico(), 240, 200, y, 210);
+      _t2chartid = novoGrafico("grafico_secundario", getT2TempoGrafico(), 240, 200, y, 210);
    }
    if (getT3GraficoExtra())
-      t3chartid = novoGrafico("grafico_terciario", getT3TempoGrafico(), 240, 200, 10, 210);
+      _t3chartid = novoGrafico("grafico_terciario", getT3TempoGrafico(), 240, 200, 10, 210);
 
    _MMT1Handle = iMA(_Symbol, _Period, getT1MM(), 0, MODE_EMA, PRICE_CLOSE);
    if(_MMT1Handle == INVALID_HANDLE) {
@@ -258,14 +258,14 @@ int LadinoView::inicializarView() {
       Print("Error creating MMT2 indicator");
       return(INIT_FAILED);
    }
-   ChartIndicatorAdd(t2chartid, 0, _MMT2Handle); 
+   ChartIndicatorAdd(_t2chartid, 0, _MMT2Handle); 
 
    _MMT3Handle = iMA(_Symbol, getT3TempoGrafico(), getT3MM(), 0, MODE_EMA, PRICE_CLOSE);
    if(_MMT3Handle == INVALID_HANDLE) {
       Print("Error creating MMT3 indicator");
       return(INIT_FAILED);
    }
-   ChartIndicatorAdd(t3chartid, 0, _MMT3Handle);
+   ChartIndicatorAdd(_t3chartid, 0, _MMT3Handle);
    
    if (t1hilo.inicializar(getT1HiloPeriodo(), _Period, ChartID())) {
       escreverLog("T1 HiLo initialized.");
@@ -276,7 +276,7 @@ int LadinoView::inicializarView() {
    }
 
    if (getT2GraficoExtra()) {
-      if (t2hilo.inicializar(getT2HiloPeriodo(), getT2TempoGrafico(), t2chartid))
+      if (t2hilo.inicializar(getT2HiloPeriodo(), getT2TempoGrafico(), _t2chartid))
          escreverLog("T2 HiLo initialized.");
       else {
          escreverLog("T2 HiLo CANNOT be initialized.");
@@ -285,7 +285,7 @@ int LadinoView::inicializarView() {
    }
       
    if (getT3GraficoExtra()) {
-      if (t3hilo.inicializar(getT3HiloPeriodo(), getT3TempoGrafico(), t3chartid))
+      if (t3hilo.inicializar(getT3HiloPeriodo(), getT3TempoGrafico(), _t3chartid))
          escreverLog("T3 HiLo initialized.");
       else {
          escreverLog("T3 HiLo CANNOT be initialized.");
