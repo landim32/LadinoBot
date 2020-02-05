@@ -10,6 +10,9 @@
 #include <LadinoBot/Views/LogPanel.mqh>
 #include <LadinoBot/Views/LadinoView.mqh>
 
+const string INFO_MAXIMUM_GAIN = "Maximum gains achieved!";
+const string INFO_MAXIMUM_LOSS = "Maximum loss achieved!";
+
 LogPanel _logs;
 
 class LadinoBot : public LadinoView {
@@ -45,12 +48,14 @@ void LadinoBot::aoFecharPosicao(double saldo) {
 }
 
 void LadinoBot::aoAtingirGanhoMax() {
-   _logs.adicionarLog("Maximum gains achieved!");
+   //_logs.adicionarLog("Maximum gains achieved!");
+   _logs.adicionarLog(INFO_MAXIMUM_GAIN);
    desativar();
 }
 
 void LadinoBot::aoAtingirPerdaMax() {
-   _logs.adicionarLog("Maximum loss achieved!");
+   //_logs.adicionarLog("Maximum loss achieved!");
+   _logs.adicionarLog(INFO_MAXIMUM_LOSS);
    desativar();
 
 }

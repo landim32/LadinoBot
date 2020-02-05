@@ -452,3 +452,7 @@ bool horarioCondicao(ENUM_HORARIO horario, ENUM_HORARIO_CONDICAO condicao) {
    }
    return retorno;
 }
+
+string MoneyToString(double money) {
+   return StringFormat("%.2f", NormalizeDouble(money, 2));
+}

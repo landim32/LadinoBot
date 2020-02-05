@@ -134,6 +134,9 @@ Distribuído sob a licença GPLv2. Veja `LICENSE` para mais informações.
 4. Push_ (`git push origin landim32/LadinoBot`)
 5. Crie um novo _Pull Request_
 
+## Donations
+
+1. BTC: 18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG
 
 
 
