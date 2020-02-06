@@ -5,7 +5,9 @@
 //+------------------------------------------------------------------+
 #property copyright "Rodrigo Landim"
 #property link      "http://www.emagine.com.br"
-#property version   "0.80"
+#property version   "0.81"
+
+#include <LadinoBot/Languages/en.mqh>
 
 const int VELA_VERIFICA_QUANTIDADE = 100;
 

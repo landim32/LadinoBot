@@ -10,9 +10,6 @@
 #include <LadinoBot/Views/LogPanel.mqh>
 #include <LadinoBot/Views/LadinoView.mqh>
 
-const string INFO_MAXIMUM_GAIN = "Maximum gains achieved!";
-const string INFO_MAXIMUM_LOSS = "Maximum loss achieved!";
-
 LogPanel _logs;
 
 class LadinoBot : public LadinoView {

@@ -10,11 +10,6 @@
 #include <LadinoBot/Strategies/SR.mqh>
 #include <LadinoBot/Trade/TradeIn.mqh>
 
-const string INFO_MOVING_STOP_BREAKEVEN = "Moving Stop to BreakEven in %d.";
-const string ERROR_MOVING_STOP_BREAKEVEN = "Could not change Stop! Current StopLoss=%d.";
-const string INFO_STOP_CHANGED = "STOP changed to %d.";
-const string ERROR_STOP_CHANGED = "Could not change Stop! Current StopLoss=%d.";
-
 class TradeOut: public TradeIn {
    private:
    public:
@@ -374,11 +369,11 @@ void TradeOut::modificarStop() {
       if (sl > this.getStopLoss() && sl < _precoCompra) {
          if (this.modificarPosicao(sl, 0)) {
             //escreverLog("STOP changed to " + IntegerToString((int)this.getStopLoss()));
-            escreverLog(StringFormat(INFO_STOP_CHANGED, this.getStopLoss()));
+            escreverLog(StringFormat(INFO_STOP_CHANGED, (int)this.getStopLoss()));
          }
          else {
             //escreverLog("Could not change Stop! Current StopLoss=" + IntegerToString((int)this.getStopLoss()));
-            escreverLog(StringFormat(ERROR_STOP_CHANGED, this.getStopLoss()));
+            escreverLog(StringFormat(ERROR_STOP_CHANGED, (int)this.getStopLoss()));
          }
       }
    }
@@ -388,11 +383,11 @@ void TradeOut::modificarStop() {
       if (sl < this.getStopLoss() && sl > _precoVenda) {
          if (this.modificarPosicao(sl, 0)) {
             //escreverLog("STOP changed to " + IntegerToString((int)this.getStopLoss()));
-            escreverLog(StringFormat(INFO_STOP_CHANGED, this.getStopLoss()));
+            escreverLog(StringFormat(INFO_STOP_CHANGED, (int)this.getStopLoss()));
          }
          else {
             //escreverLog("Could not change Stop! Current StopLoss=" + IntegerToString((int)this.getStopLoss()));
-            escreverLog(StringFormat(ERROR_STOP_CHANGED, this.getStopLoss()));
+            escreverLog(StringFormat(ERROR_STOP_CHANGED, (int)this.getStopLoss()));
          }
       }
    }
