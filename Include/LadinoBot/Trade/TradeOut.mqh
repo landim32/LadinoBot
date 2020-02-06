@@ -402,12 +402,15 @@ bool TradeOut::verificarSaida() {
    carregarVelaT2();
    carregarVelaT3();
    
-   if(t1NovaVela)
+   if(t1NovaVela) {
       atualizarSR(_negociacaoAtual);
-   if(t2NovaVela)
+   }
+   if(t2NovaVela) {
       _t2TendenciaHiLo = t2hilo.tendenciaAtual();
-   if(t3NovaVela)
+   }
+   if(t3NovaVela) {
       _t3TendenciaHiLo = t3hilo.tendenciaAtual();
+   }
       
    executarBreakEven();
    
@@ -417,12 +420,15 @@ bool TradeOut::verificarSaida() {
    }
 
    ENUM_OBJETIVO objetivo = OBJETIVO_NENHUM;
-   if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN)
+   if (_operacaoAtual == SITUACAO_ABERTA || _operacaoAtual == SITUACAO_BREAK_EVEN) {
       objetivo = getObjetivoCondicao1();
-   else if (_operacaoAtual == SITUACAO_OBJETIVO1)
+   }
+   else if (_operacaoAtual == SITUACAO_OBJETIVO1) {
       objetivo = getObjetivoCondicao2();
-   else if (_operacaoAtual == SITUACAO_OBJETIVO2)
+   }
+   else if (_operacaoAtual == SITUACAO_OBJETIVO2) {
       objetivo = getObjetivoCondicao3();
+   }
     
    if (objetivo == OBJETIVO_FIXO) {
       verificarObjetivoFixo();
@@ -433,8 +439,9 @@ bool TradeOut::verificarSaida() {
    }
    
    double precoOperacao = this.precoOperacaoAtual();
-   if (getGanhoMaximoPosicao() > 0 && precoOperacao > getGanhoMaximoPosicao())
+   if (getGanhoMaximoPosicao() > 0 && precoOperacao > getGanhoMaximoPosicao()) {
       this.finalizarPosicao();
+   }
    
    atualizarPosicao(precoOperacao, this.precoAtual());
    return false;
@@ -444,10 +451,12 @@ void TradeOut::executarObjetivo(ENUM_SINAL_POSICAO tendencia) {
    if (getObjetivoCondicao1() == OBJETIVO_ROMPIMENTO_LT) {   
       double volume = pegarProximoObjetivoVolume();
       if (volume > 0) {
-         if (executarAumento(tendencia, volume))
+         if (executarAumento(tendencia, volume)) {
             alterarOperacaoAtual();
+         }
       }
-      else
+      else {
          alterarOperacaoAtual();
+      }
    }
 }
