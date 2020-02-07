@@ -327,10 +327,12 @@ void TradeOut::verificarObjetivoFixo() {
 void TradeOut::executarBreakEven() {
    if (this.getPosicaoAtual() == COMPRADO) {
       if (getBreakEven() > 0 && _precoCompra >= (this.getPrecoEntrada() + getBreakEven())) {
-         if (_operacaoAtual == SITUACAO_ABERTA)
+         if (_operacaoAtual == SITUACAO_ABERTA) {
             _operacaoAtual = SITUACAO_BREAK_EVEN;
+         }
          double sl = this.getPrecoEntrada() + getBreakEvenValor();
          if (sl > this.getStopLoss()) {
+            /*
             if (this.modificarPosicao(sl, 0)) {
                //escreverLog("Moving Stop to BreakEven in " + IntegerToString((int)this.getStopLoss()));
                escreverLog(StringFormat(INFO_MOVING_STOP_BREAKEVEN, this.getStopLoss()));
@@ -339,15 +341,26 @@ void TradeOut::executarBreakEven() {
                //escreverLog("Could not change Stop! Current StopLoss=" + IntegerToString((int)this.getStopLoss()));
                escreverLog(StringFormat(ERROR_MOVING_STOP_BREAKEVEN, this.getStopLoss()));
             }
+            */
+            if (this.getStopLossMin() > 0) {
+               double preco = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+               double slMin = preco - this.getStopLossMin();
+               if (slMin < sl) {
+                  sl = slMin;
+               }
+            }
+            this.modificarPosicao(sl, 0);
          }
       }
    }
    else if (this.getPosicaoAtual() == VENDIDO) {
       if (getBreakEven() > 0 && _precoVenda <= (this.getPrecoEntrada() - getBreakEven())) {      
-         if (_operacaoAtual == SITUACAO_ABERTA)
+         if (_operacaoAtual == SITUACAO_ABERTA) {
             _operacaoAtual = SITUACAO_BREAK_EVEN;
+         }
          double sl = this.getPrecoEntrada() - getBreakEvenValor();
          if (sl < this.getStopLoss()) {
+            /*
             if (this.modificarPosicao(sl, 0)) {
                //escreverLog("Moving Stop to BreakEven in " + IntegerToString((int)this.getStopLoss()));
                escreverLog(StringFormat(INFO_MOVING_STOP_BREAKEVEN, this.getStopLoss()));
@@ -356,6 +369,15 @@ void TradeOut::executarBreakEven() {
                //escreverLog("Could not change Stop! Current StopLoss=" + IntegerToString((int)this.getStopLoss()));
                escreverLog(StringFormat(ERROR_MOVING_STOP_BREAKEVEN, this.getStopLoss()));
             }
+            */
+            if (this.getStopLossMin() > 0) {
+               double preco = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+               double slMin = preco + this.getStopLossMin();
+               if (slMin > sl) {
+                  sl = slMin;
+               }
+            }
+            this.modificarPosicao(sl, 0);
          }
       }
    }
@@ -367,6 +389,7 @@ void TradeOut::modificarStop() {
       double sl = pegarPosicaoStop(COMPRADO);
       sl = sl - MathMod(sl, tickMinimo);
       if (sl > this.getStopLoss() && sl < _precoCompra) {
+         /*
          if (this.modificarPosicao(sl, 0)) {
             //escreverLog("STOP changed to " + IntegerToString((int)this.getStopLoss()));
             escreverLog(StringFormat(INFO_STOP_CHANGED, (int)this.getStopLoss()));
@@ -375,12 +398,21 @@ void TradeOut::modificarStop() {
             //escreverLog("Could not change Stop! Current StopLoss=" + IntegerToString((int)this.getStopLoss()));
             escreverLog(StringFormat(ERROR_STOP_CHANGED, (int)this.getStopLoss()));
          }
+         */
+         if (this.getStopLossMin() > 0) {
+            double preco = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+            if (sl < (preco - this.getStopLossMin())) {
+               sl = preco - this.getStopLossMin();
+            }
+         }
+         this.modificarPosicao(sl, 0);
       }
    }
    else if (this.getPosicaoAtual() == VENDIDO) {
       double sl = pegarPosicaoStop(VENDIDO);
       sl = sl - MathMod(sl, tickMinimo);
       if (sl < this.getStopLoss() && sl > _precoVenda) {
+         /*
          if (this.modificarPosicao(sl, 0)) {
             //escreverLog("STOP changed to " + IntegerToString((int)this.getStopLoss()));
             escreverLog(StringFormat(INFO_STOP_CHANGED, (int)this.getStopLoss()));
@@ -389,6 +421,14 @@ void TradeOut::modificarStop() {
             //escreverLog("Could not change Stop! Current StopLoss=" + IntegerToString((int)this.getStopLoss()));
             escreverLog(StringFormat(ERROR_STOP_CHANGED, (int)this.getStopLoss()));
          }
+         */
+         if (this.getStopLossMin() > 0) {
+            double preco = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+            if (sl > (preco + this.getStopLossMin())) {
+               sl = preco + this.getStopLossMin();
+            }
+         }
+         this.modificarPosicao(sl, 0);
       }
    }
 }
