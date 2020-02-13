@@ -1,3 +1,4 @@
+[Zip](https://github.com/landim32/LadinoBot/archive/LadinoBot.zip) 
 # LadinoBot
 **LadinoBot** é um **Expert Advisor** (Robô) para **Metatrader 5**. 
 Com ele você pode ter uma ferramenta trabalhando para você. O robô funciona com várias estratégias, podendo 
