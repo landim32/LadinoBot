@@ -4,6 +4,11 @@ Com ele você pode ter uma ferramenta trabalhando para você. O robô funciona c
 combinar tempos gráficos diferentes. Objetivos diferentes podem ser usados, e as estratégias de saída da 
 operação podem ser modificadas de acordo com a evolução dos objetivos.
 
+## Vídeo
+
+Segue abaixo um vídeo com as operações de Janeiro de 2020, onde foi obtido um **lucro de R$ 2.435** com a negociação de **10 mini-contratos**. 
+[![Watch the video](https://img.youtube.com/vi/HtU_yZhYQls/maxresdefault.jpg)](https://youtu.be/HtU_yZhYQls)
+
 ## Paramêtros
 
 ### Horários de funcionamento
