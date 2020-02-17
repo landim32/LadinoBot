@@ -4,6 +4,10 @@ Com ele você pode ter uma ferramenta trabalhando para você. O robô funciona c
 combinar tempos gráficos diferentes. Objetivos diferentes podem ser usados, e as estratégias de saída da 
 operação podem ser modificadas de acordo com a evolução dos objetivos.
 
+## Vídeo
+
+[![Watch the video](https://img.youtube.com/vi/HtU_yZhYQls/maxresdefault.jpg)](https://youtu.be/HtU_yZhYQls)
+
 ## Paramêtros
 
 ### Horários de funcionamento
