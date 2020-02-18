@@ -45,12 +45,14 @@ void LadinoBot::aoFecharPosicao(double saldo) {
 }
 
 void LadinoBot::aoAtingirGanhoMax() {
-   _logs.adicionarLog("Maximum gains achieved!");
+   //_logs.adicionarLog("Maximum gains achieved!");
+   _logs.adicionarLog(INFO_MAXIMUM_GAIN);
    desativar();
 }
 
 void LadinoBot::aoAtingirPerdaMax() {
-   _logs.adicionarLog("Maximum loss achieved!");
+   //_logs.adicionarLog("Maximum loss achieved!");
+   _logs.adicionarLog(INFO_MAXIMUM_LOSS);
    desativar();
 
 }
