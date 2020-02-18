@@ -1,23 +1,20 @@
 # LadinoBot
 
 [![Package version](https://img.shields.io/github/release/landim32/LadinoBot.svg?style=flat-square)](https://github.com/landim32/LadinoBot/releases)
-[![Open Source Love png2](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/landim32/LadinoBot/)
 [![GitHub license](https://img.shields.io/github/license/landim32/LadinoBot.svg)](https://github.com/landim32/LadinoBot/blob/master/LICENSE)
-
 [![GitHub stars](https://img.shields.io/github/stars/landim32/LadinoBot.svg?style=social)](https://github.com/landim32/LadinoBot/stargazers)
 [![GitHub watchers](https://img.shields.io/github/watchers/landim32/LadinoBot.svg?style=social)](https://github.com/landim32/LadinoBot/watchers)
 [![GitHub issues](https://img.shields.io/github/issues/landim32/LadinoBot.svg?style=social)](https://github.com/landim32/LadinoBot/issues)
-[![GitHub pulls](https://img.shields.io/github/issues-pr/landim32/LadinoBot.svg?style=social)](https://github.com/landim32/LadinoBot/pulls)
 ![GitHub forks](https://img.shields.io/github/forks/landim32/LadinoBot.svg?style=social)
 
-**LadinoBot** é um **Expert Advisor** (Robô) para **Metatrader 5**. 
+**LadinoBot** (http://emagine.com.br/LadinoBot) é um **Expert Advisor** (Robô) para **Metatrader 5**. 
 Com ele você pode ter uma ferramenta trabalhando para você. O robô funciona com várias estratégias, podendo 
 combinar tempos gráficos diferentes. Objetivos diferentes podem ser usados, e as estratégias de saída da 
 operação podem ser modificadas de acordo com a evolução dos objetivos.
 
 ## Downloads
 
-- [Clique aqui](./Archives/LadinoBot-1.02.zip) para baixar o [LadinoBot 1.02](./Archives/LadinoBot-1.02.zip)
+- [Clique aqui](./releases/download/v1.02/LadinoBot.ex5) para baixar o [LadinoBot 1.02](./releases/download/v1.02/LadinoBot.ex5)
 
 ## Vídeo
 
@@ -156,7 +153,7 @@ Distribuído sob a licença GPLv2. Veja `LICENSE` para mais informações.
 
 ## Donations
 
-1. BTC: 18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG
+1. BTC: [18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG](bitcoin://18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG)
 
 
 
