@@ -17,7 +17,7 @@ operação podem ser modificadas de acordo com a evolução dos objetivos.
 
 ## Downloads
 
-- [Baixe aqui LadinoBot 1.02](./Archives/LadinoBot-1.02.zip)
+- [Clique aqui](./Archives/LadinoBot-1.02.zip) para baixar o [LadinoBot 1.02](./Archives/LadinoBot-1.02.zip)
 
 ## Vídeo
 
