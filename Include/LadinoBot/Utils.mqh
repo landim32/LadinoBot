@@ -5,7 +5,9 @@
 //+------------------------------------------------------------------+
 #property copyright "Rodrigo Landim"
 #property link      "http://www.emagine.com.br"
-#property version   "0.80"
+#property version   "0.81"
+
+#include <LadinoBot/Languages/en.mqh>
 
 const int VELA_VERIFICA_QUANTIDADE = 100;
 
@@ -451,4 +453,8 @@ bool horarioCondicao(ENUM_HORARIO horario, ENUM_HORARIO_CONDICAO condicao) {
       break;   
    }
    return retorno;
+}
+
+string MoneyToString(double money) {
+   return StringFormat("%.2f", NormalizeDouble(money, 2));
 }
