@@ -14,7 +14,7 @@ operação podem ser modificadas de acordo com a evolução dos objetivos.
 
 ## Downloads
 
-- [Clique aqui](https://github.com/landim32/LadinoBot/releases/download/latest/LadinoBot.ex5) para baixar o [LadinoBot 1.02](https://github.com/landim32/LadinoBot/releases/download/latest/LadinoBot.ex5)
+- [Clique aqui](https://github.com/landim32/LadinoBot/releases/latest/download/LadinoBot.ex5) para baixar o [LadinoBot 1.02](https://github.com/landim32/LadinoBot/releases/latest/download/LadinoBot.ex5)
 
 ## Vídeo
 
