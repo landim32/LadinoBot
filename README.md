@@ -139,7 +139,7 @@ Segue abaixo um vídeo com as operações de Janeiro de 2020, onde foi obtido um
 
 Rodrigo Landim – [@Landim32Oficial](https://twitter.com/landim32oficial) – rodrigo@emagine.com.br
 
-Distribuído sob a licença GPLv2. Veja `LICENSE` para mais informações.
+Distribuído sob a licença GPLv3. Veja `LICENSE` para mais informações.
 
 [http://emagine.com.br/LadinoBot](http://emagine.com.br/LadinoBot)
 
