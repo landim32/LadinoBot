@@ -141,7 +141,7 @@ Rodrigo Landim – [@Landim32Oficial](https://twitter.com/landim32oficial) – r
 
 Distribuído sob a licença GPLv2. Veja `LICENSE` para mais informações.
 
-[https://github.com/landim32/LadinoBot](https://github.com/landim32/LadinoBot)
+[http://emagine.com.br/LadinoBot](http://emagine.com.br/LadinoBot)
 
 ## Contributing
 
