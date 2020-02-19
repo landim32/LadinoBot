@@ -137,13 +137,10 @@ Segue abaixo um vídeo com as operações de Janeiro de 2020, onde foi obtido um
 
 ## Meta
 
-Rodrigo Landim – [@Landim32Oficial](https://twitter.com/landim32oficial) – rodrigo@emagine.com.br
-
-Distribuído sob a licença GPLv3. Veja `LICENSE` para mais informações.
-
-> OBS: O aplicativo é licenciado 'como está', 'com todas as falhas' e 'conforme disponível'. **Use-o por sua conta e risco**.
-
-[http://emagine.com.br/LadinoBot](http://emagine.com.br/LadinoBot)
+- Rodrigo Landim – [@Landim32Oficial](https://twitter.com/landim32oficial) – rodrigo@emagine.com.br
+- Distribuído sob a licença GPLv3. Veja `LICENSE` para mais informações.
+- OBS: O aplicativo é licenciado 'como está', 'com todas as falhas' e 'conforme disponível'. **Use-o por sua conta e risco**.
+- [http://emagine.com.br/LadinoBot](http://emagine.com.br/LadinoBot)
 
 ## Contributing
 
@@ -155,7 +152,7 @@ Distribuído sob a licença GPLv3. Veja `LICENSE` para mais informações.
 
 ## Donations
 
-1. BTC: [18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG](bitcoin:18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG)
+1. BTC: [18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG](bitcoin://18muAc1ktnJRbucfru4fkcgCwUNcTEbnJG)
 
 
 
