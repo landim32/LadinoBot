@@ -494,7 +494,7 @@ bool LadinoCore::getT1HiloTendencia() {
 }
 
 void LadinoCore::setT1HiloTendencia(bool value) {
-   _HiloTendencia = value; 
+   _T1HiloTendencia = value; 
 }
 
 int LadinoCore::getT1MM() {
