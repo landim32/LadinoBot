@@ -62,7 +62,7 @@ LadinoView::LadinoView(void) {
 double LadinoView::pegarMMT1() {
    double mm[1];
    if(CopyBuffer(_MMT1Handle,0,0,1,mm) != 1) {
-      Print("CopyBuffer from iMA _MMT1Handle failed, no data");
+      Print("CopyBuffer from iMA failed, no data");
       return 0;
    }
    return mm[0];
@@ -71,7 +71,7 @@ double LadinoView::pegarMMT1() {
 double LadinoView::pegarMMT2() {
    double mm[1];
    if(CopyBuffer(_MMT2Handle,0,0,1,mm) != 1) {
-      Print("CopyBuffer from iMA _MMT2Handle failed, no data");
+      Print("CopyBuffer from iMA failed, no data");
       return 0;
    }
    return mm[0];
@@ -80,7 +80,7 @@ double LadinoView::pegarMMT2() {
 double LadinoView::pegarMMT3() {
    double mm[1];
    if(CopyBuffer(_MMT3Handle,0,0,1,mm) != 1) {
-      Print("CopyBuffer from iMA _MMT3Handle failed, no data");
+      Print("CopyBuffer from iMA failed, no data");
       return 0;
    }
    return mm[0];

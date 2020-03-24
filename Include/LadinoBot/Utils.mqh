@@ -9,7 +9,6 @@
 
 #include <LadinoBot/Languages/en.mqh>
 
-
 const int VELA_VERIFICA_QUANTIDADE = 100;
 
 enum ENUM_VELA_FORMATO {
@@ -37,15 +36,15 @@ enum ENUM_VELA_PADRAO {
 };
 
 enum ENUM_VELA_TIPO {
-   NENHUM,     //[0] Nenhum
-   COMPRADORA, //[1] Compradora
-   VENDEDORA,  //[2] Vendedora
+   NENHUM,
+   COMPRADORA,
+   VENDEDORA
 };
 
 enum ENUM_OPERACAO {
-   COMPRAR_VENDER,   //[0] Comprar e Vender
-   APENAS_COMPRAR,   //[1] Apenas Comprar
-   APENAS_VENDER     //[2] Apenas Vender
+   COMPRAR_VENDER,   // Buy and Sell
+   APENAS_COMPRAR,   // Only Buy
+   APENAS_VENDER     // Only Sell
 };
 
 /*
@@ -138,64 +137,64 @@ enum ENUM_TEMPO_GRAFICO {
 };
 
 enum ENUM_ENTRADA {
-   HILO_CRUZ_MM_T1_TICK = 0,           //[0] HiLo/MM T1 (Tick)
-   HILO_CRUZ_MM_T2_TICK = 1,           //[1] HiLo/MM T2 (Tick)
-   HILO_CRUZ_MM_T3_TICK = 2,           //[2] HiLo/MM T3 (Tick)
-   HILO_CRUZ_MM_T1_FECHAMENTO = 3,     //[3] HiLo/MM T1 (Close)
-   HILO_CRUZ_MM_T2_FECHAMENTO = 4,     //[4] HiLo/MM T2 (Close)
-   HILO_CRUZ_MM_T3_FECHAMENTO = 5,     //[5] HiLo/MM T3 (Close)
-   APENAS_TENDENCIA_T1 = 12,           //[12] Only Trend T1
-   APENAS_TENDENCIA_T2 = 13,           //[13] Only Trend T2
-   APENAS_TENDENCIA_T3 = 14            //[14] Only Trend T3
+   HILO_CRUZ_MM_T1_TICK = 0,           // HiLo/MM T1 (Tick)
+   HILO_CRUZ_MM_T2_TICK = 1,           // HiLo/MM T2 (Tick)
+   HILO_CRUZ_MM_T3_TICK = 2,           // HiLo/MM T3 (Tick)
+   HILO_CRUZ_MM_T1_FECHAMENTO = 3,     // HiLo/MM T1 (Close)
+   HILO_CRUZ_MM_T2_FECHAMENTO = 4,     // HiLo/MM T2 (Close)
+   HILO_CRUZ_MM_T3_FECHAMENTO = 5,     // HiLo/MM T3 (Close)
+   APENAS_TENDENCIA_T1 = 12,           // Only Trend T1
+   APENAS_TENDENCIA_T2 = 13,           // Only Trend T2
+   APENAS_TENDENCIA_T3 = 14            // Only Trend T3
 };
 
 enum ENUM_RISCO {
-   RISCO_NORMAL = 0,       //[0] Risco Normal
-   RISCO_PROGRESSIVO = 1   //[1] Risco Progressivo
+   RISCO_NORMAL = 0,       // Normal
+   RISCO_PROGRESSIVO = 1   // Progressive
 };
 
 enum ENUM_OBJETIVO {
-   OBJETIVO_NENHUM = 0,             //[0] Nada para fazer
-   OBJETIVO_FIXO = 1,               //[1] Posição fixa
-   OBJETIVO_ROMPIMENTO_LT = 2,      //[2] Trendline Break
-   OBJETIVO_DUNNIGAN = 3,           //[3] Dunnigan Price Action
-   OBJETIVO_T1_FIBO_0382 = 4,       //[4] T1 Fibo 38,2
-   OBJETIVO_T2_FIBO_0382 = 5,       //[5] T2 Fibo 38,2
-   OBJETIVO_T3_FIBO_0382 = 6,       //[6] T3 Fibo 38,2
-   OBJETIVO_T1_FIBO_0618 = 7,       //[7] T1 Fibo 61,8
-   OBJETIVO_T2_FIBO_0618 = 8,       //[8]  T2 Fibo 61,8
-   OBJETIVO_T3_FIBO_0618 = 9,       //[9] T3 Fibo 61,8
-   OBJETIVO_T1_FIBO_1000 = 10,      //[10] T1 Fibo 100
-   OBJETIVO_T2_FIBO_1000 = 11,      //[11] T2 Fibo 100
-   OBJETIVO_T3_FIBO_1000 = 12,      //[12] T3 Fibo 100
-   OBJETIVO_T1_FIBO_1382 = 13,      //[13] T1 Fibo 138,2
-   OBJETIVO_T2_FIBO_1382 = 14,      //[14] T2 Fibo 138,2
-   OBJETIVO_T3_FIBO_1382 = 15,      //[15] T3 Fibo 138,2
-   OBJETIVO_T1_FIBO_1618 = 16,      //[16] T1 Fibo 161,8
-   OBJETIVO_T2_FIBO_1618 = 17,      //[17] T2 Fibo 161,8
-   OBJETIVO_T3_FIBO_1618 = 18,      //[18] T3 Fibo 161,8
-   OBJETIVO_T1_FIBO_2000 = 19,      //[19] T1 Fibo 200
-   OBJETIVO_T2_FIBO_2000 = 20,      //[20] T2 Fibo 200
-   OBJETIVO_T3_FIBO_2000 = 21,      //[21] T3 Fibo 200
-   OBJETIVO_T1_FIBO_2618 = 22,      //[22] T1 Fibo 261,8
-   OBJETIVO_T2_FIBO_2618 = 23,      //[23] T2 Fibo 261,8
-   OBJETIVO_T3_FIBO_2618 = 24       //[24] T3 Fibo 261,8
+   OBJETIVO_NENHUM = 0,             // Nothing to do
+   OBJETIVO_FIXO = 1,               // Fixed Position
+   OBJETIVO_ROMPIMENTO_LT = 2,      // Trendline Break
+   OBJETIVO_DUNNIGAN = 3,           // Dunnigan Price Action
+   OBJETIVO_T1_FIBO_0382 = 4,       // T1 Fibo 38,2
+   OBJETIVO_T2_FIBO_0382 = 5,       // T2 Fibo 38,2
+   OBJETIVO_T3_FIBO_0382 = 6,       // T3 Fibo 38,2
+   OBJETIVO_T1_FIBO_0618 = 7,       // T1 Fibo 61,8
+   OBJETIVO_T2_FIBO_0618 = 8,       // T2 Fibo 61,8
+   OBJETIVO_T3_FIBO_0618 = 9,       // T3 Fibo 61,8
+   OBJETIVO_T1_FIBO_1000 = 10,      // T1 Fibo 100
+   OBJETIVO_T2_FIBO_1000 = 11,      // T2 Fibo 100
+   OBJETIVO_T3_FIBO_1000 = 12,      // T3 Fibo 100
+   OBJETIVO_T1_FIBO_1382 = 13,      // T1 Fibo 138,2
+   OBJETIVO_T2_FIBO_1382 = 14,      // T2 Fibo 138,2
+   OBJETIVO_T3_FIBO_1382 = 15,      // T3 Fibo 138,2
+   OBJETIVO_T1_FIBO_1618 = 16,      // T1 Fibo 161,8
+   OBJETIVO_T2_FIBO_1618 = 17,      // T2 Fibo 161,8
+   OBJETIVO_T3_FIBO_1618 = 18,      // T3 Fibo 161,8
+   OBJETIVO_T1_FIBO_2000 = 19,      // T1 Fibo 200
+   OBJETIVO_T2_FIBO_2000 = 20,      // T2 Fibo 200
+   OBJETIVO_T3_FIBO_2000 = 21,      // T3 Fibo 200
+   OBJETIVO_T1_FIBO_2618 = 22,      // T1 Fibo 261,8
+   OBJETIVO_T2_FIBO_2618 = 23,      // T2 Fibo 261,8
+   OBJETIVO_T3_FIBO_2618 = 24       // T3 Fibo 261,8
 };
 
 enum ENUM_STOP {
-   STOP_FIXO = 0,             //[0] Stop Fixed
-   STOP_T1_HILO = 1,          //[1] T1 HiLo
-   STOP_T2_HILO = 2,          //[2] T2 HiLo
-   STOP_T3_HILO = 3,          //[3] T3 HiLo
-   STOP_T1_TOPO_FUNDO = 4,    //[4] T1 Top/Bottom
-   STOP_T2_TOPO_FUNDO = 5,    //[5] T2 Top/Bottom
-   STOP_T3_TOPO_FUNDO = 6,    //[6] T3 Top/Bottom
-   STOP_T1_VELA_ATENRIOR = 7, //[7] T1 Prior Candle
-   STOP_T2_VELA_ATENRIOR = 8, //[8] T2 Prior Candle
-   STOP_T3_VELA_ATENRIOR = 9, //[9] T3 Prior Candle
-   STOP_T1_VELA_ATUAL = 10,   //[10] T1 Current Candle
-   STOP_T2_VELA_ATUAL = 11,   //[11] T2 Current Candle
-   STOP_T3_VELA_ATUAL = 12    //[12] T3 Current Candle
+   STOP_FIXO = 0,             // Stop Fixed
+   STOP_T1_HILO = 1,          // T1 HiLo
+   STOP_T2_HILO = 2,          // T2 HiLo
+   STOP_T3_HILO = 3,          // T3 HiLo
+   STOP_T1_TOPO_FUNDO = 4,    // T1 Top/Bottom
+   STOP_T2_TOPO_FUNDO = 5,    // T2 Top/Bottom
+   STOP_T3_TOPO_FUNDO = 6,    // T3 Top/Bottom
+   STOP_T1_VELA_ATENRIOR = 7, // T1 Prior Candle
+   STOP_T2_VELA_ATENRIOR = 8, // T2 Prior Candle
+   STOP_T3_VELA_ATENRIOR = 9, // T3 Prior Candle
+   STOP_T1_VELA_ATUAL = 10,    // T1 Current Candle
+   STOP_T2_VELA_ATUAL = 11,   // T2 Current Candle
+   STOP_T3_VELA_ATUAL = 12    // T3 Current Candle
 };
 
 enum ENUM_OPERACAO_SITUACAO {
@@ -213,8 +212,8 @@ enum ENUM_SR {
 };
 
 enum ENUM_ATIVO {
-   ATIVO_INDICE,  //[0] Indice
-   ATIVO_ACAO     //[1] Stock
+   ATIVO_INDICE,  // Indice
+   ATIVO_ACAO     // Stock
 };
 
 struct TRADE_POSICAO {
