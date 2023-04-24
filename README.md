@@ -7,7 +7,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/landim32/LadinoBot.svg?style=social)](https://github.com/landim32/LadinoBot/issues)
 ![GitHub forks](https://img.shields.io/github/forks/landim32/LadinoBot.svg?style=social)
 
-**LadinoBot** (http://emagine.com.br/LadinoBot) is an **Expert Advisor** Expert Advisor **Metatrader 5**. 
+**LadinoBot** [http://emagine.com.br/LadinoBot](http://emagine.com.br/LadinoBot) is an **Expert Advisor** Expert Advisor **Metatrader 5**. 
 With it you can have a tool working for you. The robot works with various strategies and can combine different chart times. Different objectives can be used, and the exit strategies of the operation can be modified according to the evolution of the objectives.
 
 ## Downloads
@@ -88,13 +88,13 @@ Below is a video with the January 2020 operations, where a **profit of R$ 2,435*
 
 - **Stop Loss Min** - Minimum point difference between entry price and Stop Loss;
 - **Stop Loss Max** - Maximum point difference between entry price and Stop Loss. If **Force entry** is active, the Stop Loss will be reduced to the value of **Stop Loss Max**, otherwise the operation will not be performed.
-- ***Extra Stop** - Additional Stop Loss points;
+- **Extra Stop** - Additional Stop Loss points;
 - **Stop Initial** - This is the Stop Loss model used to open the operation. Stop Loss types are valid for T1, T2 or T3 charts and are:
-    * **Stop Fixed** - The Stop Loss value is a fixed value, based on the field **Stop Fixed value**;
-    * **thread** - The Stop Loss is initially in the thread position and the price follows the change;
-    * **Top/Bottom** - Stop Loss rises/falls as a new top or bottom appears;
-    * **Worst Candle** - Stop Loss rises/falls below/above the previous Candle;
-    * **Current Candle** - Stop Loss rises/falls below/above the current Candle;
+    **Stop Fixed** - The Stop Loss value is a fixed value, based on the field **Stop Fixed value**;
+    **thread** - The Stop Loss is initially in the thread position and the price follows the change;
+    **Top/Bottom** - Stop Loss rises/falls as a new top or bottom appears;
+    **Worst Candle** - Stop Loss rises/falls below/above the previous Candle;
+    **Current Candle** - Stop Loss rises/falls below/above the current Candle;
 - **Stop Fixed value** - Fixed Stop Loss value. The <Strong>Stop Initial</Strong> must be marked as **Stop Fixed**;
 - **Force entry** - If active, the operation will be initialized by adjusting the Stop Loss value to **Stop Loss Max**. If it is not active, it will only initialize the operation if the Stop Loss value is within the limit of **Stop Loss Max**;
 
@@ -156,6 +156,7 @@ Distributed under the GPLv2 license. See `LICENSE` for more information.
 ## Other Contributors
 
 Juan Quinche (English README version) [https://github.com/juan12425](https://github.com/juan12425)
+
 ## How to Contribute
 
 1. _fork_ the project (<https://github.com/landim32/LadinoBot/fork>)
