@@ -30,23 +30,23 @@ Below is a video with the January 2020 operations, where a **profit of R$ 2,435*
 ### Basic Operations manual
 
 - **Operation type** - Type of operations supported. Available options are:
-***Buy and Sell** - The robot operates both buy and sell;
-****Only Buy** - Open only buy operations;
-****Only Sell** - Open only sell operations;
+-**Buy and Sell** - The robot operates both buy and sell;
+-**Only Buy** - Open only buy operations;
+-**Only Sell** - Open only sell operations;
 -**Asset type** - Type of asset to be traded. This field will influence the value of the brokerage to be accounted for. Below are the options:
-***Index** - Brokerage shall be charged per negotiated contract;
-***Stock** - Brokerage shall be charged per trade, regardless of the volume traded;
+-**Index** - Brokerage shall be charged per negotiated contract;
+-**Stock** - Brokerage shall be charged per trade, regardless of the volume traded;
 -**Risk Management** - Modified risk management. The options are:
-***Normal** - Normal risk, nothing different;
-***Progressive** - In progressive risk, the robot uses profit achieved to increase Stop Loss;
--***Input Condition** - Condition for entry into operation:
-***Thread/MM T1 (Tick)** - when Candle crosses the moving average in the main graphic time T1, not waiting for Candle to close;
-***Thread/MM T2 (Tick)** - When Candle crosses the moving average in T2 chart time, not waiting for Candle to close;
-***Thread/MM T3 (Tick)** - When Candle crosses the moving average in time graph T3, not waiting for Candle to close;
-***Thread/MM T1 (Close)** - When Candle crosses the moving average in main graphic time T1, it runs when Candle closes;
-***Thread/MM T2 (Close)** - When Candle crosses the moving average in graphical time T2, it runs when Candle closes;
-***Thread/MM T3 (Close)** - When Candle crosses the moving average in graphical time T3, it runs when Candle closes;
-****Only Trend T1** - Active when the main graphic time T1 displays flashing tops and backgrounds;
+-**Normal** - Normal risk, nothing different;
+-**Progressive** - In progressive risk, the robot uses profit achieved to increase Stop Loss;
+-**Input Condition** - Condition for entry into operation:
+-**Thread/MM T1 (Tick)** - when Candle crosses the moving average in the main graphic time T1, not waiting for Candle to close;
+-**Thread/MM T2 (Tick)** - When Candle crosses the moving average in T2 chart time, not waiting for Candle to close;
+-**Thread/MM T3 (Tick)** - When Candle crosses the moving average in time graph T3, not waiting for Candle to close;
+-**Thread/MM T1 (Close)** - When Candle crosses the moving average in main graphic time T1, it runs when Candle closes;
+-**Thread/MM T2 (Close)** - When Candle crosses the moving average in graphical time T2, it runs when Candle closes;
+-**Thread/MM T3 (Close)** - When Candle crosses the moving average in graphical time T3, it runs when Candle closes;
+-**Only Trend T1** - Active when the main graphic time T1 displays flashing tops and backgrounds;
 
 - **Value per point** - Financial value per point earned or lost;
 
@@ -90,11 +90,11 @@ Below is a video with the January 2020 operations, where a **profit of R$ 2,435*
 - **Stop Loss Max** - Maximum point difference between entry price and Stop Loss. If **Force entry** is active, the Stop Loss will be reduced to the value of **Stop Loss Max**, otherwise the operation will not be performed.
 - **Extra Stop** - Additional Stop Loss points;
 - **Stop Initial** - This is the Stop Loss model used to open the operation. Stop Loss types are valid for T1, T2 or T3 charts and are:
-    **Stop Fixed** - The Stop Loss value is a fixed value, based on the field **Stop Fixed value**;
-    **thread** - The Stop Loss is initially in the thread position and the price follows the change;
-    **Top/Bottom** - Stop Loss rises/falls as a new top or bottom appears;
-    **Worst Candle** - Stop Loss rises/falls below/above the previous Candle;
-    **Current Candle** - Stop Loss rises/falls below/above the current Candle;
+    * **Stop Fixed** - The Stop Loss value is a fixed value, based on the field **Stop Fixed value**;
+    * **thread** - The Stop Loss is initially in the thread position and the price follows the change;
+    * **Top/Bottom** - Stop Loss rises/falls as a new top or bottom appears;
+    * **Worst Candle** - Stop Loss rises/falls below/above the previous Candle;
+    * **Current Candle** - Stop Loss rises/falls below/above the current Candle;
 - **Stop Fixed value** - Fixed Stop Loss value. The <Strong>Stop Initial</Strong> must be marked as **Stop Fixed**;
 - **Force entry** - If active, the operation will be initialized by adjusting the Stop Loss value to **Stop Loss Max**. If it is not active, it will only initialize the operation if the Stop Loss value is within the limit of **Stop Loss Max**;
 
