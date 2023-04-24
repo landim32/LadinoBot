@@ -100,9 +100,9 @@ Below is a video with the January 2020 operations, where a **profit of R$ 2,435*
 
 ### Increase of position
 
-- ***Run Position Increase** - Use position increase. When you reach a new goal, if the volume is greater than zero the position will be increased;
+- **Run Position Increase** - Use position increase. When you reach a new goal, if the volume is greater than zero the position will be increased;
 - **Run Position Stop Extra** - Extra Stop Loss value used only for position increase;
-- ***Run Position Increase Minimal** - Minimum value that the price must move to allow a new entry;
+- **Run Position Increase Minimal** - Minimum value that the price must move to allow a new entry;
 
 ### Break Even Options
 
@@ -113,7 +113,7 @@ Below is a video with the January 2020 operations, where a **profit of R$ 2,435*
 ### Volume Options
 
 - **Initial volume** - Initial operating volume;
-- ***Maximum volume** - Maximum volume of the operation. If increasing the running position is enabled, the volume may not pass this value;
+- **Maximum volume** - Maximum volume of the operation. If increasing the running position is enabled, the volume may not pass this value;
 
 #### Objective 1
 
@@ -126,14 +126,14 @@ Below is a video with the January 2020 operations, where a **profit of R$ 2,435*
 
 - **Objective 2 Condition** - Condition for achieving objective 2. See options in **Entry condition**;
 - **Objective 2 Volume** - Volume to be achieved when target 2 is reached. When negative will take the position, when positive will increase the position;
-- ***Objective 2 Position** - Fixed value for achieving objective 2.  **Objective 2 Condition** shall be marked as **Fixed Position**;
+- **Objective 2 Position** - Fixed value for achieving objective 2.  **Objective 2 Condition** shall be marked as **Fixed Position**;
 - **Objective 2 Stop** - This is the Stop Loss model used from the moment you reach target 2. See more details in the fields **Initial stop**;
 
 #### Goal 3
 
 - **Objective 3 Condition** - Condition for achieving objective 3. See options in **Entry condition**;
 - **Objective 3 Volume** - Volume to be achieved when target 3 is reached. When negative will take the position, when positive will increase the position;
-- ****Objective 3 Position** - Fixed value to achieve objective 3. <Strong>Objective 3 Condition</Strong> must be marked as **Fixed**;
+- **Objective 3 Position** - Fixed value to achieve objective 3. <Strong>Objective 3 Condition</Strong> must be marked as **Fixed**;
 - **Objective 3 Stop** - This is the Stop Loss model used from the moment you reach target 3. See more details in the fields **Initial stop**;
 
 ## Histórico de lançamentos
