@@ -7,14 +7,12 @@
 [![GitHub issues](https://img.shields.io/github/issues/landim32/LadinoBot.svg?style=social)](https://github.com/landim32/LadinoBot/issues)
 ![GitHub forks](https://img.shields.io/github/forks/landim32/LadinoBot.svg?style=social)
 
-**LadinoBot** (http://emagine.com.br/LadinoBot) é um **Expert Advisor** (Robô) para **Metatrader 5**. 
-Com ele você pode ter uma ferramenta trabalhando para você. O robô funciona com várias estratégias, podendo 
-combinar tempos gráficos diferentes. Objetivos diferentes podem ser usados, e as estratégias de saída da 
-operação podem ser modificadas de acordo com a evolução dos objetivos.
+**LadinoBot** (http://emagine.com.br/LadinoBot) is a **Expert Advisor** Expert Advisor **Metatrader 5**. 
+With it you can have a tool working for you. The robot works with various strategies and can combine different graphic times. Different objectives can be used, and the exit strategies of the operation can be modified according to the evolution of the objectives.
 
 ## Downloads
 
-- [Clique aqui](https://github.com/landim32/LadinoBot/releases/latest/download/LadinoBot.ex5) para baixar o [LadinoBot 1.02](https://github.com/landim32/LadinoBot/releases/latest/download/LadinoBot.ex5)
+- [Click here](https://github.com/landim32/LadinoBot/releases/latest/download/LadinoBot.ex5) para baixar o [LadinoBot 1.02](https://github.com/landim32/LadinoBot/releases/latest/download/LadinoBot.ex5)
 
 ## Vídeo
 
