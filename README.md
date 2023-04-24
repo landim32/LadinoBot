@@ -155,7 +155,7 @@ Distributed under the GPLv2 license. See `LICENSE` for more information.
 
 ## Other Contributors
 
-Juan Quinche (English README version) [https://github.com/juan12425]
+Juan Quinche (English README version) [https://github.com/juan12425](https://github.com/juan12425)
 ## How to Contribute
 
 1. _fork_ the project (<https://github.com/landim32/LadinoBot/fork>)
